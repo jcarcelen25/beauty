@@ -16,7 +16,7 @@
                     
                     <div class="col-12 col-md-4">
                         <center>
-                            <h4>Cntáctanos</h4>
+                            <h4>Contáctanos</h4>
                             <p class="footer-list">Si quieres contactarte con nostros escríbenos al correo: <a>beauty&photo@gmail.com</a></p>
                         </center>
                     </div>
@@ -48,5 +48,6 @@
         </div>
 
         <script src="src/bootstrap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.js" integrity="sha512-0rYcJjaqTGk43zviBim8AEjb8cjUKxwxCqo28py38JFKKBd35yPfNWmwoBLTYORC9j/COqldDc9/d1B7dhRYmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>

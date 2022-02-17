@@ -13,32 +13,32 @@
                                 <div style="width:95%;">
                                     <h1>Tendencias en la industria</h1>
                                     <p>El mundo está cambiando con gran rapidez y la industria de la moda no es la excepción. Los avances en la tecnología propician la aparición de nuevos modelos de negocio disruptivos que transforman la manera de hacer las cosas en la industria. Además, el consumidor es cada vez más consciente y empoderado, pues busca productos y servicios que no afecten el medio ambiente y que sean socialmente responsables. Este, a su vez, también amplía sus demandas, expectativas, quejas y comentarios por medio de las redes sociales.</p>
-                                    <img src="images/post/01.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/02.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/03.jpg" style="width:90%;" /><br><br>
+                                    <a href="images/post/01.jpg" data-lightbox="models"><img src="images/post/01.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/02.jpg" data-lightbox="models"><img src="images/post/02.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/03.jpg" data-lightbox="models"><img src="images/post/03.jpg" style="width:90%;" /></a><br><br>
 
                                     <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
                                     
-                                    <img src="images/post/4.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/5.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/6.jpg" style="width:90%;" /><br><br>
+                                    <a href="images/post/4.jpg" data-lightbox="models"><img src="images/post/4.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/5.jpg" data-lightbox="models"><img src="images/post/5.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/6.jpg" data-lightbox="models"><img src="images/post/6.jpg" style="width:90%;" /></a><br><br>
                                     
                                     <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
                                     
-                                    <img src="images/post/7.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/8.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/9.jpg" style="width:90%;" /><br><br>
+                                    <a href="images/post/7.jpg" data-lightbox="models"><img src="images/post/7.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/8.jpg" data-lightbox="models"><img src="images/post/8.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/9.jpg" data-lightbox="models"><img src="images/post/9.jpg" style="width:90%;" /></a><br><br>
                                     
                                     <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
                                     
-                                    <img src="images/post/10.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/11.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/12.jpg" style="width:90%;" /><br><br>
+                                    <a href="images/post/10.jpg" data-lightbox="models"><img src="images/post/10.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/11.jpg" data-lightbox="models"><img src="images/post/11.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/12.jpg" data-lightbox="models"><img src="images/post/12.jpg" style="width:90%;" /></a><br><br>
                                     
                                     <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
                                     
-                                    <img src="images/post/13.jpg" style="width:90%;" /><br><br>
-                                    <img src="images/post/14.jpg" style="width:90%;" /><br><br>
+                                    <a href="images/post/13.jpg" data-lightbox="models"><img src="images/post/13.jpg" style="width:90%;" /></a><br><br>
+                                    <a href="images/post/14.jpg" data-lightbox="models"><img src="images/post/14.jpg" style="width:90%;" /></a><br><br>
                                     
                                     <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
                                     
