@@ -48,6 +48,6 @@
         </div>
 
         <script src="src/bootstrap.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.js" integrity="sha512-0rYcJjaqTGk43zviBim8AEjb8cjUKxwxCqo28py38JFKKBd35yPfNWmwoBLTYORC9j/COqldDc9/d1B7dhRYmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="src/lightbox-plus-jquery.js"></script>
     </body>
 </html>

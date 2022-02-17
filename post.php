@@ -58,7 +58,7 @@
                                 
                                 <div class="row">
                                     <div class="col-12">
-                                        <h1>Entradas populares</h1>
+                                        <h3>Entradas populares</h3>
                                     </div>
                                 </div>
                                 
@@ -114,65 +114,7 @@
                                 
                                 <div class="row">
                                     <div class="col-12">
-                                        <h1>Entradas recientes</h1>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div style="width:80%;">
-                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:100%;" /><br><br>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h1>Entradas recomendadas</h1>
+                                        <h3>Entradas recientes</h3>
                                     </div>
                                 </div>
                                 
@@ -230,7 +172,65 @@
                                 
                                 <div class="row">
                                     <div class="col-12">
-                                        <h1>Otros usuarios miran</h1>
+                                        <h3>Entradas recomendadas</h3>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                        <img src="images/post/1.jpg" style="width:100%;">
+                                        <a href="post.php?ver=">
+                                            <div class="overlay">
+                                                <div class="text">¿Cabello rojo o negro?</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-5">
+                                        <img src="images/post/1.jpg" style="width:100%;">
+                                        <a href="post.php?ver=">
+                                            <div class="overlay">
+                                                <div class="text">¿Cabello rojo o negro?</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-1"></div>
+                                    <div class="col-5">
+                                        <img src="images/post/1.jpg" style="width:100%;">
+                                        <a href="post.php?ver=">
+                                            <div class="overlay">
+                                                <div class="text">¿Cabello rojo o negro?</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-5">
+                                        <img src="images/post/1.jpg" style="width:100%;">
+                                        <a href="post.php?ver=">
+                                            <div class="overlay">
+                                                <div class="text">¿Cabello rojo o negro?</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="row"><br><br></div>
+                                
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div style="width:80%;">
+                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:100%;" /><br><br>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="row"><br><br></div>
+                                
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3>Otros usuarios miran</h3>
                                     </div>
                                 </div>
                                 
