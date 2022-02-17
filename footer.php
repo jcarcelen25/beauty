@@ -49,5 +49,47 @@
 
         <script src="src/bootstrap.js"></script>
         <script src="src/lightbox-plus-jquery.js"></script>
+        <script>
+            var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+            var alertTrigger = document.getElementById('liveAlertBtn');
+
+            function alert(message) {
+                var wrapper = document.createElement('div');
+                wrapper.innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                alertPlaceholder.append(wrapper);
+            }
+              
+            if (alertTrigger) {
+                alertTrigger.addEventListener('click', function () {
+                  alert('Nice, you triggered this alert message!', 'success');
+                });
+            }
+            
+            $("#frmAcceso").on('submit',function(e) {
+                e.preventDefault();
+                usuario=$("#usuario").val();
+                clave=$("#clave").val();
+        
+                $.post("controllers/author.php?accion=login",{ "usuario":usuario, "clave":clave }, function(data) {
+                    if (data.length == 4) {
+                        alert('No se ha podido iniciar sesión, verifique los datos e intente de nuevo!');
+                    } else {
+                        location.reload();
+                    }
+                });
+            });
+            
+            $(document).keydown(function (event) {
+                if (event.keyCode == 123) { // Prevent F12
+                    return false;
+                } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+                    return false;
+                }
+            });
+            
+            $(document).on("contextmenu", function (e) {        
+                e.preventDefault();
+            });
+        </script>
     </body>
 </html>
