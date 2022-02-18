@@ -191,8 +191,15 @@
             
             <li class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-money-bill"></i>
+                <i class="nav-icon fas fa-credit-card"></i>
                 <p>Google Ads</p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="nav-icon fas fa-money-bill"></i>
+                <p>Registro contable</p>
               </a>
             </li>
           </ul>
