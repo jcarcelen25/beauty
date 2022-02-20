@@ -5,14 +5,16 @@
         public function __construct() { /* constructor */ }
         
         public function mostrar_todos() {
-            $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user
+            $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user,
+                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas
                     FROM post a 
                     JOIN author b ON a.id_author = b.author_id;";
             return ejecutarConsulta($sql);
         }
         
         public function mostrar_activos() {
-            $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user
+            $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user,
+                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas
                     FROM post a 
                     JOIN author b ON a.id_author = b.author_id
                     WHERE post_status = '1';";
@@ -20,7 +22,8 @@
         }
         
         public function mostrar_inactivos() {
-            $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user
+            $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user,
+                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas
                     FROM post a 
                     JOIN author b ON a.id_author = b.author_id
                     WHERE post_status = '0';";
@@ -36,7 +39,7 @@
         
         public function insertar($post_title, $post_meta_title, $post_slug, $post_summary, $post_content, $id_author, $lastupdated) {
             $sql = "INSERT INTO post (post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, id_author, lastupdated)
-                    VALUES ('$post_title', '$post_meta_title', '$post_slug', '$post_summary', 'NOW()', '$post_content', '0', '1', '$id_author', '$lastupdated');";
+                    VALUES ('$post_title', '$post_meta_title', '$post_slug', '$post_summary', NOW(), '$post_content', '0', '1', '$id_author', '$lastupdated');";
             return ejecutarConsulta($sql);
         }
         

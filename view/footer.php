@@ -98,9 +98,9 @@
                                 showConfirmButton: false,
                                 timer: 2500
                             });
-                            mostrar_formulario(false);
+                            verForm(false);
+                            limpiarForm();
                             tabla.ajax.reload();
-                            limpiar_formulario();
                         } else {
                             Swal.fire({
                                 icon: 'error',
@@ -133,6 +133,7 @@
                 
                 tabla=$('#mainTableData').dataTable({
                     colReorder: false,
+                    rowReorder: false,
                     keys: true,
                     "paging": true,
                     "lengthChange": true,
@@ -168,7 +169,6 @@
                             });
                         }
                     },
-                    rowReorder: true,
                     "language": {
                         url: 'src/dataTables.es-mx.json',
                         "lengthMenu": "Mostrar : _MENU_ registros",

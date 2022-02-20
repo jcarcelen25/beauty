@@ -198,7 +198,7 @@
             
             <li class="nav-item">
               <a href="../controllers/author.php?accion=cerrar_sesion" class="nav-link">
-                <i class="nav-icon fas fa-money-bill"></i>
+                <i class="nav-icon fas fa-times"></i>
                 <p>Cerrar sesión</p>
               </a>
             </li>

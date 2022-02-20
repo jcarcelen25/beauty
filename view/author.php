@@ -42,7 +42,7 @@
               <div class="card-body"> <!-- .card-body -->
                 <div class="row">
                   <div class="col-12" id="mainTable">
-                    <table id="mainTableData" class="table table-borderless table-striped dataTable">
+                    <table id="mainTableData" class="table dataTable table-hover table-head-fixed table-light table-condensed " role="grid">
                       <thead>
                         <th>Id</th>
                         <th>Usuario</th>
