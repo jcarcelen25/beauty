@@ -20,6 +20,239 @@
         <script src="src/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script> <!-- overlayScrollbars -->
         <script src="src/adminlte.js"></script> <!-- AdminLTE App -->
         
+        <!-- DataTables -->
+        <script src="src/datatables/jquery.dataTables.js"></script>
+        <script src="src/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <script src="src/datatables-responsive/js/dataTables.responsive.js"></script>
+        <script src="src/datatables-buttons/js/dataTables.buttons.js"></script>
+        <script src="src/datatables-buttons/js/buttons.bootstrap4.js"></script>
+        <script src="src/datatables-colreorder/js/dataTables.colReorder.js"></script>
+        <script src="src/datatables-rowreorder/js/dataTables.rowReorder.js"></script>
+        <script src="src/datatables-keytable/js/dataTables.keyTable.js"></script>
+        <script src="src/jszip/jszip.js"></script>
+        <script src="src/pdfmake/pdfmake.js"></script>
+        <script src="src/pdfmake/vfs_fonts.js"></script>
+        <script src="src/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="src/datatables-buttons/js/dataTables.buttons.js"></script>
+        <script src="src/datatables-buttons/js/buttons.html5.js"></script>
+        <script src="src/datatables-buttons/js/buttons.print.js"></script>
+        <script src="src/datatables-buttons/js/buttons.colVis.js"></script>
+        
+        <script>
+            function limpiarForm() {
+                $('#formulario')[0].reset();
+            }
+            
+            function verForm(bool) {
+                if (bool) { // ver form
+                    $("#mainTable").hide();
+                    $("#btnAgregar").hide();
+                    $("#opcionesVer").hide();
+                    
+                    $("#btnGuardar").prop("disabled", false);
+                    $("#btnCancelar").show();
+                    $("#mainForm").show();
+                } else { // ver table
+                    $("#mainForm").hide();
+                    $("#mainTable").show();
+                    $("#btnAgregar").show();
+                    $("#btnCancelar").show();
+                    $("#btnGuardar").prop("disabled", true);
+                }
+            }
+            
+            function cancelarForm() {
+                Swal.fire({
+                    title: '¿Cerrar del formulario?',
+                    html: "Las cajas de texto se limpiarán<br/>No puedes revertir esta acción!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, cerrar formulario!',
+                    cancelButtonText:'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        limpiarForm();
+                        verForm(false);
+                    }
+                });
+            }
+            
+            function guardarDatos(e) {
+                e.preventDefault(); //No se activará la acción predeterminada del evento
+                var formData = new FormData($("#formulario")[0]);
+                
+                $("#btnGuardar").prop("disabled",true);
+                $.ajax({
+                    url: "../controllers/"+controller+"?accion=guardar",
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(datos) {     
+                        if(datos == "1") {
+                            Swal.fire({
+                                icon: 'success',
+                                text: 'Los datos se han guardado',
+                                showConfirmButton: false,
+                                timer: 2500
+                            });
+                            mostrar_formulario(false);
+                            tabla.ajax.reload();
+                            limpiar_formulario();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                text: 'Los datos no se han podido guardar',
+                                showConfirmButton: false,
+                                timer: 2500
+                            });
+                        }
+                    }
+                });
+            }
+            
+            function opcionesVer(status,url) {
+                switch(status) {
+                    case 'active':
+                         url = '../controllers/'+controller+'?accion=mostrar_activos';
+                         $("#filtro").html("Activos");
+                    break;
+                    case 'inactive':
+                         url = '../controllers/'+controller+'?accion=mostrar_inactivos';
+                         $("#filtro").html("Inactivos");
+                    break;
+                    case 'all':
+                         url = '../controllers/'+controller+'?accion=mostrar_todos';
+                         $("#filtro").html("Todos");
+                    break;
+                    default :
+                         url = '../controllers/'+controller+'?accion=mostrar_activos';
+                         $("#filtro").html("Activos");
+                }
+                
+                tabla=$('#tblListado').dataTable({
+                    colReorder: true,
+                    keys: true,
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "responsive": true,
+                    "lengthMenu": [[10, 20, 50, 100, -1], [10, 20, 50, 100, "Todo"]],//mostramos el menú de registros a revisar
+                    "aProcessing": true, /* activa el procesamiento de DataTables */
+                    "aServerSide": true, /* Paginación y filtrado realizado por el servidor */
+                    dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
+                    "buttons": [
+                        { extend: 'copyHtml5', text: '<i class="fas icon-size fa-copy"></i>', titleAttr: 'Copiar' },
+                        { extend: 'excelHtml5', text: '<i class="fas icon-size fa-file-excel"></i>', titleAttr: 'Excel' },
+                        { extend: 'csvHtml5', text: '<i class="fas icon-size fa-file-csv"></i>', titleAttr: 'CSV' },
+                        { extend: 'pdfHtml5', text: '<i class="fas icon-size fa-file-pdf"></i>', titleAttr: 'PDF' },
+                        { extend: 'print', text: '<i class="fas icon-size fa-print"></i>', titleAttr: 'Imprimir' },
+                        { extend: 'colvis', text: '<i class="fas icon-size fa-eye-slash"></i>', titleAttr: 'Mostrar/ocultar' },
+                        { text: '<i class="fas icon-size fa-sync-alt"></i>', action: function() { tabla.ajax.reload(); }, titleAttr: 'Recargar' }
+                    ],
+                    "ajax": {
+                        url: url,
+                        type: "get",
+                        dataType: "json",
+                        error: function (xhr, error, code) {
+                            console.log(xhr);
+                            console.log(code);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'No se pudo cargar la tabla!'
+                            });
+                        }
+                    },
+                    rowReorder: true,
+                    "language": {
+                        url: 'src/dataTables.es-mx.json',
+                        "lengthMenu": "Mostrar : _MENU_ registros",
+                        "buttons": {
+                            "copyTitle": "Tabla Copiada",
+                            "copySuccess": { _: '%d líneas copiadas', 1: '1 línea copiada' }
+                        }
+                    },
+                    "bDestroy": true,
+                    "iDisplayLength": 10, /* paginación */
+                    "order": [[6, "asc"]]
+                }).DataTable();
+            }
+            
+            function desactivar(id) { /* desactivar */
+                Swal.fire({
+                    text: '¿Inactivar este '+titulo+'?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, inactivar!',
+                    cancelButtonText:'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.post("../controllers/"+controller+"?accion=desactivar", { cat_id : cat_id }, function(datos){
+                            if(datos == "1") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    text: 'Los datos se han inactivado',
+                                    showConfirmButton: false,
+                                    timer: 2500
+                                });
+                                mostrar_formulario(false);
+                                tabla.ajax.reload();
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    text: 'Los datos no se han podido inactivar',
+                                    showConfirmButton: false,
+                                    timer: 2500
+                                });
+                            }
+                        });	
+                    }
+                });
+            }
+        
+            function activar(id) { /* activar */
+                Swal.fire({
+                    text: '¿Activar este '+titulo+'?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, activar!',
+                    cancelButtonText:'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.post("../controllers/"+controller+"?accion=activar", { id : id }, function(datos) {
+                            if(datos == "1") {
+                                Swal.fire({
+                                    icon: 'success',
+                                    text: 'Los datos se han activado',
+                                    showConfirmButton: false,
+                                    timer: 2500
+                                });
+                                mostrar_formulario(false);
+                                tabla.ajax.reload();
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    text: 'Los datos no se han podido activar',
+                                    showConfirmButton: false,
+                                    timer: 2500
+                                });
+                            }
+                        });	
+                    }
+                });
+            }
+        </script>
+        
         <script>
             var chartOptions = { legend: { display: false } };
             

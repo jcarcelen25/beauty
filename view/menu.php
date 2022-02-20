@@ -115,7 +115,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">        
+      <a href="dashboard.php" class="brand-link">        
         <span class="brand-text font-weight-bold">Beauty & Photography</span>
       </a>
   
@@ -148,56 +148,49 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="post.php" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>Post</p>
               </a>
             </li>
             
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="author.php" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>Autores</p>
               </a>
             </li>
             
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-comment"></i>
-                <p>Comentarios</p>
-              </a>
-            </li>
-            
-            <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="config.php" class="nav-link">
                 <i class="nav-icon fas fa-wrench"></i>
                 <p>Configuración</p>
               </a>
             </li>
             
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="newsletter.php" class="nav-link">
                 <i class="nav-icon fas fa-envelope"></i>
                 <p>Boletín</p>
               </a>
             </li>
             
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="social.php" class="nav-link">
                 <i class="nav-icon fas fa-thumbs-up"></i>
                 <p>Redes sociales</p>
               </a>
             </li>
             
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="ads.php" class="nav-link">
                 <i class="nav-icon fas fa-credit-card"></i>
                 <p>Google Ads</p>
               </a>
             </li>
             
             <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
+              <a href="count.php" class="nav-link">
                 <i class="nav-icon fas fa-money-bill"></i>
                 <p>Registro contable</p>
               </a>

@@ -1,14 +1,12 @@
 <?php include './header.php'; ?>
 <?php include './menu.php'; ?>
 
-
-  <div class="content-wrapper"><br> <!-- Content Wrapper. Contains page content -->
-    
+  <div class="content-wrapper"><br> <!-- Content Wrapper. Contains page content -->    
     <section class="content"> <!-- Main content -->
       <div class="container-fluid"> <!-- Small boxes (Stat box) -->
         
         <div class="row">
-          <div class="col-lg-6 col-12">
+          <div class="col-md-6 col-12">
             <div class="row">
               
               <div class="col-6"> <!-- small box -->
@@ -86,7 +84,7 @@
             </div>
           </div>
           
-          <div class="col-lg-6 col-12">
+          <div class="col-md-6 col-12">
             <div class="row">
               
               <div class="col-6"> <!-- small box -->
@@ -162,9 +160,9 @@
             </div>
           </div>
           
-          <div class="col-lg-6 col-12">
+          <div class="col-md-6 col-12">
             <div class="row">
-              <div class="col-12 col-lg-6">
+              <div class="col-12 col-md-6">
                 <div class="info-box mb-3 bg-indigo">
                   <span class="info-box-icon"><i class="fas fa-money-bill"></i></span>
                   <div class="info-box-content">
@@ -173,7 +171,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-lg-6">
+              <div class="col-12 col-md-6">
                 <div class="info-box mb-3 bg-teal">
                   <span class="info-box-icon"><i class="fas fa-credit-card"></i></span>
                   <div class="info-box-content">
@@ -194,7 +192,7 @@
             </div>
           </div>
         
-          <div class="col-lg-6 col-12">
+          <div class="col-md-6 col-12">
             <div class="row">
               <div class="col-12">
                 <div class="card"> <!-- Custom tabs (Charts with tabs)-->
@@ -218,6 +216,5 @@
     </section>
   </div>
 <!-- ./wrapper -->
-
 
 <?php include './footer.php'; ?>
