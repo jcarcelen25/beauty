@@ -29,8 +29,9 @@
         <link rel="stylesheet" href="src/datatables-keytable/css/keyTable.bootstrap4.css">
         
       <style>
-        #opcionesVer {
-            height:32px!important; width:100px!important; float:right!important;
-        }
+        #opcionesVer { height:32px!important; width:120px!important; float:right!important; }
+        #mainTableData { min-width:100%!important; width:100%!important; max-width:100%!important; }
+        .card-body { overflow-x:auto!important; }
+        .dt-buttons { margin-bottom:10px; }
       </style>
     </head>

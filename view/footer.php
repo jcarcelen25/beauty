@@ -114,26 +114,25 @@
             }
             
             function opcionesVer(status,url) {
+                var e = document.getElementById("opcionesVer");
+                status = e.options[e.selectedIndex].value;
+        
                 switch(status) {
-                    case 'active':
+                    case 'activos':
                          url = '../controllers/'+controller+'?accion=mostrar_activos';
-                         $("#filtro").html("Activos");
                     break;
-                    case 'inactive':
+                    case 'inactivos':
                          url = '../controllers/'+controller+'?accion=mostrar_inactivos';
-                         $("#filtro").html("Inactivos");
                     break;
-                    case 'all':
+                    case 'todos':
                          url = '../controllers/'+controller+'?accion=mostrar_todos';
-                         $("#filtro").html("Todos");
                     break;
                     default :
                          url = '../controllers/'+controller+'?accion=mostrar_activos';
-                         $("#filtro").html("Activos");
                 }
                 
-                tabla=$('#tblListado').dataTable({
-                    colReorder: true,
+                tabla=$('#mainTableData').dataTable({
+                    colReorder: false,
                     keys: true,
                     "paging": true,
                     "lengthChange": true,
@@ -180,7 +179,7 @@
                     },
                     "bDestroy": true,
                     "iDisplayLength": 10, /* paginación */
-                    "order": [[6, "asc"]]
+                    "order": [[0, "asc"]]
                 }).DataTable();
             }
             

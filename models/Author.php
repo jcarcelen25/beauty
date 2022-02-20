@@ -5,27 +5,36 @@
         public function __construct() { /* constructor */ }
         
         public function mostrar_todos() {
-            $sql = "SELECT author_id, author_user, author_status, lastupdated
-                    FROM author;";
+            $sql = "SELECT author_id, author_user, author_status,
+                        (SELECT COUNT(post_id) FROM post b WHERE a.author_id = b.id_author) AS post,
+                        (SELECT SUM(view_id) FROM view c JOIN post d ON c.id_post = d.post_id WHERE d.id_author = a.author_id) AS visitas,
+                        (SELECT post_likes FROM post b WHERE a.author_id = b.id_author) AS likes
+                    FROM author a; ";
             return ejecutarConsulta($sql);
         }
         
         public function mostrar_activos() {
-            $sql = "SELECT author_id, author_user, author_status, lastupdated
-                    FROM author
+            $sql = "SELECT author_id, author_user, author_status,
+                        (SELECT COUNT(post_id) FROM post b WHERE a.author_id = b.id_author) AS post,
+                        (SELECT SUM(view_id) FROM view c JOIN post d ON c.id_post = d.post_id WHERE d.id_author = a.author_id) AS visitas,
+                        (SELECT post_likes FROM post b WHERE a.author_id = b.id_author) AS likes
+                    FROM author a
                     WHERE author_status = '1'; ";
             return ejecutarConsulta($sql);
         }
         
         public function mostrar_inactivos() {
-            $sql = "SELECT author_id, author_user, author_status, lastupdated
-                    FROM author
+            $sql = "SELECT author_id, author_user, author_status,
+                        (SELECT COUNT(post_id) FROM post b WHERE a.author_id = b.id_author) AS post,
+                        (SELECT SUM(view_id) FROM view c JOIN post d ON c.id_post = d.post_id WHERE d.id_author = a.author_id) AS visitas,
+                        (SELECT post_likes FROM post b WHERE a.author_id = b.id_author) AS likes
+                    FROM author a
                     WHERE author_status = '0'; ";
             return ejecutarConsulta($sql);
         }
         
         public function mostrar_uno($author_id) {
-            $sql = "SELECT author_id, author_user, author_status, lastupdated
+            $sql = "SELECT author_id, author_user, author_status
                     FROM author
                     WHERE author_id = '$author_id'; ";
             return ejecutarConsultaSimple($sql);
