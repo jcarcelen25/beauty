@@ -1,5 +1,8 @@
 <?php require './config/Connection.php'; ?>
-
+<?php
+    session_start(); /* toma las variables de sesion */
+    ob_start(); /* inicia almacenamiento en buffer */
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>

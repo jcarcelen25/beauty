@@ -1,6 +1,11 @@
 <?php
     require_once '../models/Author.php';
 
+    ob_start();
+    if (strlen(session_id()) < 1) {
+        session_start();
+    }
+    
     $author_id = isset($_POST["author_id"])? LimpiarCadena($_POST["author_id"]):"";
     $author_user = isset($_POST["author_user"])? LimpiarCadena($_POST["author_user"]):"";
     $author_password = isset($_POST["author_password"])? LimpiarCadena($_POST["author_password"]):"";
@@ -110,10 +115,10 @@
             
             if ($author_password == $author_password2) {
                 if (empty($author_id)) { /* insertar */
-                    $respuesta = $author -> insertar($author_user, $author_password, "0");
+                    $respuesta = $author -> insertar($author_user, $author_password, $_SESSION['author_id']);
                     echo $respuesta ? "1": "0";
                 } else { /* actualizar */
-                    $respuesta = $author -> editar($author_password, $lastupdated, $author_id);
+                    $respuesta = $author -> editar($author_password, $_SESSION['author_id'], $author_id);
                     echo $respuesta ? "1": "0";
                 }
             } else {
@@ -122,25 +127,32 @@
         break;
     
         case 'desactivar':
-            $respuesta = $author -> desactivar("0", $author_id);
+            $respuesta = $author -> desactivar($_SESSION['author_id'], $author_id);
             echo $respuesta ? "1": "0";
         break;
     
         case 'activar':
-            $respuesta = $author -> activar("0", $author_id);
+            $respuesta = $author -> activar($_SESSION['author_id'], $author_id);
             echo $respuesta ? "1": "0";
         break;
     
         case 'login':
             $usuario = $_POST['usuario'];
-            $clave = hash("SHA256",$_POST['clave']);
+            $clave = hash("SHA256", $_POST['clave']);
             
             $respuesta = $author -> login($usuario, $clave);
             $registrar = $respuesta -> fetch_object();
             if (isset($registrar)) {
-                $_SESSION['author_id'] = $registrar -> persona_id;
+                $_SESSION['author_id'] = $registrar -> author_id;
+                $_SESSION['author_user'] = $registrar -> author_user;
             }
             echo json_encode($registrar);
+        break;
+    
+        case 'cerrar_sesion':
+            session_unset(); /* limpiar variables de sesion */
+            session_destroy(); /* destruye la sesion */
+            header("Location: ../inicio.php");
         break;
     }    
 ?>

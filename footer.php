@@ -61,12 +61,17 @@
             
             $("#frmAcceso").on('submit',function(e) {
                 e.preventDefault();
-                usuario=$("#usuario").val();
-                clave=$("#clave").val();
+                usuario = $("#usuario").val();
+                clave = $("#clave").val();
         
                 $.post("controllers/author.php?accion=login",{ "usuario":usuario, "clave":clave }, function(data) {
-                    alert(data);
+                    data = JSON.parse(data);
                     
+                    if (data.author_id > 0) {
+                        $(location).attr("href", "inicio.php");
+                    } else {
+                        alert('No se ha podido iniciar sesión, verifique los datos e intente de nuevo!');
+                    }
                 });
             });
             

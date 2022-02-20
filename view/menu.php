@@ -127,7 +127,7 @@
             <i class="fa fa-user fa-2x"></i>
           </div>
           <div class="info">
-            <a href="#" class="d-block">Nombre de usuario</a>
+            <a href="#" class="d-block"><?php echo $_SESSION['author_user']; ?></a>
           </div>
         </div>
   
@@ -193,6 +193,13 @@
               <a href="count.php" class="nav-link">
                 <i class="nav-icon fas fa-money-bill"></i>
                 <p>Registro contable</p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="../controllers/author.php?accion=cerrar_sesion" class="nav-link">
+                <i class="nav-icon fas fa-money-bill"></i>
+                <p>Cerrar sesión</p>
               </a>
             </li>
           </ul>

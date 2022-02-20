@@ -1,3 +1,7 @@
+<?php
+    session_start(); /* toma las variables de sesion */
+    ob_start(); /* inicia almacenamiento en buffer */
+?>
 <div class="sticky-top">
     <div class="container" style="background-color:#000;;">
         <div class="row">
@@ -15,7 +19,12 @@
                         <td><a target="_blank" href=""><img src="images/icons/telegram.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
                         <td><a target="_blank" href=""><img src="images/icons/mail.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
                         <td><a target="_blank" href=""><img src="images/icons/sharethis.png" style="width:25px; margin:5px 20px 5px 10px;" /></a></td>
-                        <td><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="images/icons/menu.png" style="width:25px;" /></button></td>
+                        <td>
+                          <?php
+                            if ($_SESSION['author_id'] > 0) { echo '<a href="view/dashboard.php" target="_blank" class="btn btn-outline-secondary"><img src="images/icons/menu.png" style="width:25px;" /></a>'; }
+                            else {echo '<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="images/icons/menu.png" style="width:25px;" /></button>'; }
+                          ?>
+                        </td>
                     </tr>
                 </table>
             </div>

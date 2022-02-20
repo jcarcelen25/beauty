@@ -76,7 +76,6 @@
                     WHERE author_status > 0
                     AND author_user = '$usuario' 
                     AND author_password = '$clave' ; ";
-            echo $sql;
             return ejecutarConsulta($sql);
         }
     }
