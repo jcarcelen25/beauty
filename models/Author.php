@@ -19,7 +19,7 @@
                         (SELECT SUM(view_id) FROM view c JOIN post d ON c.id_post = d.post_id WHERE d.id_author = a.author_id) AS visitas,
                         (SELECT post_likes FROM post b WHERE a.author_id = b.id_author) AS likes
                     FROM author a
-                    WHERE author_status = '1'; ";
+                    WHERE author_status > '0'; ";
             return ejecutarConsulta($sql);
         }
         
@@ -67,6 +67,16 @@
                     author_status = '2',
                     lastupdated = '$lastupdated'
                     WHERE author_id = '$author_id';";
+            return ejecutarConsulta($sql);
+        }
+        
+        public function login($usuario, $clave) {
+            $sql = "SELECT author_id, author_user
+                    FROM author 
+                    WHERE author_status > 0
+                    AND author_user = '$usuario' 
+                    AND author_password = '$clave' ; ";
+            echo $sql;
             return ejecutarConsulta($sql);
         }
     }

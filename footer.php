@@ -58,12 +58,6 @@
                 wrapper.innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                 alertPlaceholder.append(wrapper);
             }
-              
-            if (alertTrigger) {
-                alertTrigger.addEventListener('click', function () {
-                  alert('Nice, you triggered this alert message!', 'success');
-                });
-            }
             
             $("#frmAcceso").on('submit',function(e) {
                 e.preventDefault();
@@ -71,11 +65,8 @@
                 clave=$("#clave").val();
         
                 $.post("controllers/author.php?accion=login",{ "usuario":usuario, "clave":clave }, function(data) {
-                    if (data.length == 4) {
-                        alert('No se ha podido iniciar sesión, verifique los datos e intente de nuevo!');
-                    } else {
-                        location.reload();
-                    }
+                    alert(data);
+                    
                 });
             });
             
