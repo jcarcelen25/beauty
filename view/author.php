@@ -104,15 +104,15 @@
                                       </div>
                                   </div><br>
                                   <div class="row">
-                                      <div class="col-2"></div>
-                                      <div class="col-3">
-                                          <button type="submit" id="btnGuardar" class="btn btn-block bg-gradient-info btn-sm">Guardar</button>
-                                      </div>
-                                      <div class="col-1"></div>
-                                      <div class="col-3">
-                                          <a href="#" id="btnCancelar" onclick="cancelarForm()" class="btn btn-block bg-gradient-danger btn-sm">Cancelar</a>
-                                      </div>
-                                  </div>
+                                    <div class="col-12 col-md-2"></div>
+                                    <div class="col-12 col-md-3">
+                                        <a href="#" onclick="cancelarForm()" class="btn btn-block bg-gradient-danger btn-sm">Cancelar</a>
+                                    </div>
+                                    <div class="col-12 col-md-1"></div>
+                                    <div class="col-12 col-md-3">
+                                        <button type="submit" class="btn btn-block bg-gradient-info btn-sm">Guardar</button>
+                                    </div>
+                                </div>
                                 </form>
                             </div>
                             <div class="col-12 col-md-1"></div>

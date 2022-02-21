@@ -19,7 +19,7 @@
             return ejecutarConsulta($sql);
         }
         
-        public function mostrar_inactivos() {
+        public function mostrar_inactivos($id_post) {
             $sql = "SELECT image_id, image_url, image_type, image_position, image_status
                     FROM image
                     WHERE id_post = '$id_post'
@@ -50,16 +50,18 @@
             return ejecutarConsulta($sql);
         }
         
-        public function desactivar($image_id) {
+        public function desactivar($lastupdated, $image_id) {
             $sql = "UPDATE image SET 
-                    image_status = '1'
+                    image_status = '1',
+                    lastupdated = '$lastupdated'
                     WHERE image_id = '$image_id';";
             return ejecutarConsulta($sql);
         }
         
-        public function activar($image_id) {
+        public function activar($lastupdated, $image_id) {
             $sql = "UPDATE image SET 
-                    image_status = '0'
+                    image_status = '0',
+                    lastupdated = '$lastupdated'
                     WHERE image_id = '$image_id';";
             return ejecutarConsulta($sql);
         }

@@ -41,6 +41,7 @@
         <script>
             function limpiarForm() {
                 $('#formulario')[0].reset();
+                $('#imagen_muestra').attr("src","");
             }
             
             function verForm(bool) {

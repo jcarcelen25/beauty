@@ -2,7 +2,7 @@
   
   <div id="overlay" style="position: fixed; background-color: rgba(0, 0, 0, 0.8); width: 100%; height: 100%; top: 0px; left: 0px; display: none; z-index: 99998;" onclick="verModal(false)"></div>
   <div id="cerrar" style="position: fixed; top: 10px; right: 10px; display: none; z-index: 999999;"><a href="#" onclick="verModal(false)"><i class="far fa-times-circle" style="color: #fff; font-size: 2em;"></i></a></div>
-  <iframe src="" id="modal_iframe" name="modalIframe" style="position: fixed; top: 45px; left: 10px; width: 95%; height: 95%; z-index: 99999; display: none; border: none; border-radius: 35px;"></iframe>
+  <iframe src="" id="modal_iframe" name="modalIframe" style="position: fixed; top: 25px; left: 10px; width: 97%; height: 95%; z-index: 99999; display: none; border: none; border-radius: 35px;"></iframe>
   
   <div class="wrapper">
   
