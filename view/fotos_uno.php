@@ -105,7 +105,8 @@
                                   <div class="col-12 col-md-8">
                                       <select class="form-control" id="image_type" name="image_type">
                                         <option value="1">Post</option>
-                                        <option value="2">Banner</option>
+                                        <option value="2">Banner principal</option>
+                                        <option value="3">Banner secundario</option>
                                       </select>
                                   </div>
                               </div><br>
