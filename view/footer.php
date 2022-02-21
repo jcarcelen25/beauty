@@ -182,6 +182,19 @@
                     "order": [[0, "asc"]]
                 }).DataTable();
             }
+            
+            function verModal(bool) {
+                if (bool) {
+                    $("#modal_iframe").show();
+                    $("#overlay").show();
+                    $("#cerrar").show();
+                } else {
+                    $("#modal_iframe").hide();
+                    $("#overlay").hide();
+                    $("#cerrar").hide();
+                    tabla.ajax.reload();
+                }
+            }
         </script>
         
         <script>

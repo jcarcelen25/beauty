@@ -246,7 +246,7 @@
   }
   
   function fotos(id) {
-    
+    verModal(true);
   }
   
   function tags(id) {
