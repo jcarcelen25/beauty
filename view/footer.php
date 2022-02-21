@@ -48,7 +48,6 @@
                     $("#mainTable").hide();
                     $("#btnAgregar").hide();
                     $("#opcionesVer").hide();
-                    
                     $("#btnGuardar").prop("disabled", false);
                     $("#btnCancelar").show();
                     $("#mainForm").show();
@@ -57,6 +56,7 @@
                     $("#mainTable").show();
                     $("#btnAgregar").show();
                     $("#btnCancelar").show();
+                    $("#opcionesVer").show();
                     $("#btnGuardar").prop("disabled", true);
                 }
             }

@@ -88,9 +88,14 @@
                             <div class="col-12 col-md-10">
                                 <form name="formulario" id="formulario" method="POST">
                                   <div class="row">
+                                      <div class="col-12 col-md-2 text-center"><label>Post <sup>*</sup></label></div>
+                                      <div class="col-12 col-md-8">
+                                          <input type="number" class="form-control" name="post_id" id="post_id" value="" readonly >
+                                      </div>
+                                  </div><br>
+                                  <div class="row">
                                       <div class="col-12 col-md-2 text-center"><label>Título <sup>*</sup></label></div>
                                       <div class="col-12 col-md-8">
-                                          <input type="hidden" name="post_id" id="post_id" value="">
                                           <input type="text" class="form-control" name="post_title" id="post_title" maxlength="75" required="">
                                       </div>
                                   </div><br>
@@ -238,6 +243,14 @@
             });	
         }
     });
+  }
+  
+  function fotos(id) {
+    
+  }
+  
+  function tags(id) {
+    
   }
   
   init();

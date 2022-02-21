@@ -8,7 +8,7 @@
             $sql = "SELECT author_id, author_user, author_status,
                         (SELECT COUNT(post_id) FROM post b WHERE a.author_id = b.id_author) AS post,
                         (SELECT SUM(view_id) FROM view c JOIN post d ON c.id_post = d.post_id WHERE d.id_author = a.author_id) AS visitas,
-                        (SELECT post_likes FROM post b WHERE a.author_id = b.id_author) AS likes
+                        (SELECT SUM(post_likes) FROM post b WHERE a.author_id = b.id_author) AS likes
                     FROM author a; ";
             return ejecutarConsulta($sql);
         }
@@ -17,7 +17,7 @@
             $sql = "SELECT author_id, author_user, author_status,
                         (SELECT COUNT(post_id) FROM post b WHERE a.author_id = b.id_author) AS post,
                         (SELECT SUM(view_id) FROM view c JOIN post d ON c.id_post = d.post_id WHERE d.id_author = a.author_id) AS visitas,
-                        (SELECT post_likes FROM post b WHERE a.author_id = b.id_author) AS likes
+                        (SELECT SUM(post_likes) FROM post b WHERE a.author_id = b.id_author) AS likes
                     FROM author a
                     WHERE author_status > '0'; ";
             return ejecutarConsulta($sql);
@@ -27,7 +27,7 @@
             $sql = "SELECT author_id, author_user, author_status,
                         (SELECT COUNT(post_id) FROM post b WHERE a.author_id = b.id_author) AS post,
                         (SELECT SUM(view_id) FROM view c JOIN post d ON c.id_post = d.post_id WHERE d.id_author = a.author_id) AS visitas,
-                        (SELECT post_likes FROM post b WHERE a.author_id = b.id_author) AS likes
+                        (SELECT SUM(post_likes) FROM post b WHERE a.author_id = b.id_author) AS likes
                     FROM author a
                     WHERE author_status = '0'; ";
             return ejecutarConsulta($sql);

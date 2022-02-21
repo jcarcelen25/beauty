@@ -79,35 +79,40 @@
                             <div class="col-12 col-md-1"></div>
                             <div class="col-12 col-md-10">
                                 <form name="formulario" id="formulario" method="POST">
-                                    <div class="row">
-                                        <div class="col-12 col-md-2 text-center"><label>Correo <sup>*</sup></label></div>
+                                  <div class="row">
+                                        <div class="col-12 col-md-2 text-center"><label>Autor <sup>*</sup></label></div>
                                         <div class="col-12 col-md-7">
-                                            <input type="hidden" name="author_id" id="author_id" value="">
-                                            <input type="email" class="form-control" name="author_user" id="author_user" maxlength="100" required="">
+                                            <input type="number" class="form-control" name="author_id" id="author_id" value="" readonly >
                                         </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-12 col-md-2 text-center"><label>Clave <sup>*</sup></label></div>
-                                        <div class="col-12 col-md-7">
-                                            <input type="password" class="form-control" name="author_password" id="author_password" maxlength="100" required="">
-                                        </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-12 col-md-2 text-center"><label>Confirmación de clave <sup>*</sup></label></div>
-                                        <div class="col-12 col-md-7">
-                                            <input type="password" class="form-control" name="author_password2" id="author_password2" maxlength="100" required="">
-                                        </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-2"></div>
-                                        <div class="col-3">
-                                            <button type="submit" id="btnGuardar" class="btn btn-block bg-gradient-info btn-sm">Guardar</button>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-3">
-                                            <a href="#" id="btnCancelar" onclick="cancelarForm()" class="btn btn-block bg-gradient-danger btn-sm">Cancelar</a>
-                                        </div>
-                                    </div>
+                                  </div><br>
+                                  <div class="row">
+                                      <div class="col-12 col-md-2 text-center"><label>Correo <sup>*</sup></label></div>
+                                      <div class="col-12 col-md-7">
+                                          <input type="email" class="form-control" name="author_user" id="author_user" maxlength="100" required="">
+                                      </div>
+                                  </div><br>
+                                  <div class="row">
+                                      <div class="col-12 col-md-2 text-center"><label>Clave <sup>*</sup></label></div>
+                                      <div class="col-12 col-md-7">
+                                          <input type="password" class="form-control" name="author_password" id="author_password" maxlength="100" required="">
+                                      </div>
+                                  </div><br>
+                                  <div class="row">
+                                      <div class="col-12 col-md-2 text-center"><label>Confirmación de clave <sup>*</sup></label></div>
+                                      <div class="col-12 col-md-7">
+                                          <input type="password" class="form-control" name="author_password2" id="author_password2" maxlength="100" required="">
+                                      </div>
+                                  </div><br>
+                                  <div class="row">
+                                      <div class="col-2"></div>
+                                      <div class="col-3">
+                                          <button type="submit" id="btnGuardar" class="btn btn-block bg-gradient-info btn-sm">Guardar</button>
+                                      </div>
+                                      <div class="col-1"></div>
+                                      <div class="col-3">
+                                          <a href="#" id="btnCancelar" onclick="cancelarForm()" class="btn btn-block bg-gradient-danger btn-sm">Cancelar</a>
+                                      </div>
+                                  </div>
                                 </form>
                             </div>
                             <div class="col-12 col-md-1"></div>
