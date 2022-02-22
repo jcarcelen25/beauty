@@ -3,8 +3,8 @@
     ob_start(); /* inicia almacenamiento en buffer */
 ?>
 <div class="sticky-top">
-    <div class="container" style="background-color:#000;;">
-        <div class="row">
+    <div class="container">
+        <div class="row" style="border-radius:25px 25px 0px 0px!important;">
             <div class="col-12 col-md-4">
                 <center>
                     <a href="inicio.php"><img src="images/logo/logo.png" style="width:81%; margin:15px;" /></a>

@@ -6,7 +6,8 @@
         
         public function mostrar_todos() {
             $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user,
-                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas
+                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas,
+                        (SELECT COUNT(image_id) FROM image d WHERE a.post_id = d.id_post AND image_status = 1) AS fotos
                     FROM post a 
                     JOIN author b ON a.id_author = b.author_id;";
             return ejecutarConsulta($sql);
@@ -14,7 +15,8 @@
         
         public function mostrar_activos() {
             $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user,
-                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas
+                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas,
+                        (SELECT COUNT(image_id) FROM image d WHERE a.post_id = d.id_post AND image_status = 1) AS fotos
                     FROM post a 
                     JOIN author b ON a.id_author = b.author_id
                     WHERE post_status = '1';";
@@ -23,7 +25,8 @@
         
         public function mostrar_inactivos() {
             $sql = "SELECT post_id, post_title, post_meta_title, post_slug, post_summary, post_published, post_content, post_likes, post_status, b.author_user,
-                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas
+                        (SELECT SUM(view_id) FROM view c WHERE c.id_post = a.post_id) AS vistas,
+                        (SELECT COUNT(image_id) FROM image d WHERE a.post_id = d.id_post AND image_status = 1) AS fotos
                     FROM post a 
                     JOIN author b ON a.id_author = b.author_id
                     WHERE post_status = '0';";

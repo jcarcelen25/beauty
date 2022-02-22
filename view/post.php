@@ -46,28 +46,28 @@
                       <thead>
                         <th>Id</th>
                         <th>Título</th>
-                        <th>Meta</th>
                         <th>Slug</th>
                         <th>Resumen</th>
+                        <th>Fotos</th>
+                        <th>Visitas</th>
+                        <th>Likes</th>
                         <th>Autor</th>
                         <th>Fecha</th>
                         <th>Estado</th>
-                        <th>Visitas</th>
-                        <th>Likes</th>
                         <th></th>
                       </thead>
                       <tbody></tbody>
                       <tfoot>
                         <th>Id</th>
                         <th>Título</th>
-                        <th>Meta</th>
                         <th>Slug</th>
                         <th>Resumen</th>
+                        <th>Fotos</th>
+                        <th>Visitas</th>
+                        <th>Likes</th>
                         <th>Autor</th>
                         <th>Fecha</th>
                         <th>Estado</th>
-                        <th>Visitas</th>
-                        <th>Likes</th>
                         <th></th>
                       </tfoot>
                     </table>

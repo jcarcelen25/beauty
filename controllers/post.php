@@ -24,16 +24,16 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => $registrar->post_meta_title,
-                    "3" => $registrar->post_slug,
-                    "4" => substr($registrar->post_summary, 0, 150),
-                    "5" => $registrar->author_user,
-                    "6" => $registrar->post_published,
-                    "7" => ($registrar->post_status == "0")?
+                    "2" => $registrar->post_slug,
+                    "3" => substr($registrar->post_summary, 0, 150),
+                    "4" => ($registrar->fotos > 0)? $registrar->fotos : '0',
+                    "5" => ($registrar->visitas > 0)? $registrar->visitas :'0',
+                    "6" => ($registrar->likes > 0)? $registrar->likes : '0',
+                    "7" => $registrar->author_user,
+                    "8" => $registrar->post_published,
+                    "9" => ($registrar->post_status == "0")?
                         '<small class="badge badge-danger">Inactivo</small>':
                         '<small class="badge badge-success">Activo</small>',
-                    "8" => $registrar->visitas,
-                    "9" => $registrar->likes,
                     "10" => ($registrar->post_status == "0")?
                         '<span class="btn btn-sm btn-info" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span>&nbsp;&nbsp;&nbsp;<span class="btn btn-sm btn-warning" title="Eliminar" onclick="activar('.$registrar->post_id.')">Activar</span>':
                         '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="tags_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="Tags">Tags</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
@@ -56,16 +56,16 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => $registrar->post_meta_title,
-                    "3" => $registrar->post_slug,
-                    "4" => substr($registrar->post_summary, 0, 150),
-                    "5" => $registrar->author_user,
-                    "6" => $registrar->post_published,
-                    "7" => ($registrar->post_status == "0")?
+                    "2" => $registrar->post_slug,
+                    "3" => substr($registrar->post_summary, 0, 150),
+                    "4" => ($registrar->fotos > 0)? $registrar->fotos : '0',
+                    "5" => ($registrar->visitas > 0)? $registrar->visitas :'0',
+                    "6" => ($registrar->likes > 0)? $registrar->likes : '0',
+                    "7" => $registrar->author_user,
+                    "8" => $registrar->post_published,
+                    "9" => ($registrar->post_status == "0")?
                         '<small class="badge badge-danger">Inactivo</small>':
                         '<small class="badge badge-success">Activo</small>',
-                    "8" => $registrar->visitas,
-                    "9" => $registrar->likes,
                     "10" => ($registrar->post_status == "0")?
                         '<span class="btn btn-sm btn-info" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span>&nbsp;&nbsp;&nbsp;<span class="btn btn-sm btn-warning" title="Eliminar" onclick="activar('.$registrar->post_id.')">Activar</span>':
                         '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="tags_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="Tags">Tags</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
@@ -88,16 +88,16 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => $registrar->post_meta_title,
-                    "3" => $registrar->post_slug,
-                    "4" => substr($registrar->post_summary, 0, 150),
-                    "5" => $registrar->author_user,
-                    "6" => $registrar->post_published,
-                    "7" => ($registrar->post_status == "0")?
+                    "2" => $registrar->post_slug,
+                    "3" => substr($registrar->post_summary, 0, 150),
+                    "4" => ($registrar->fotos > 0)? $registrar->fotos : '0',
+                    "5" => ($registrar->visitas > 0)? $registrar->visitas :'0',
+                    "6" => ($registrar->likes > 0)? $registrar->likes : '0',
+                    "7" => $registrar->author_user,
+                    "8" => $registrar->post_published,
+                    "9" => ($registrar->post_status == "0")?
                         '<small class="badge badge-danger">Inactivo</small>':
                         '<small class="badge badge-success">Activo</small>',
-                    "8" => $registrar->visitas,
-                    "9" => $registrar->likes,
                     "10" => ($registrar->post_status == "0")?
                         '<span class="btn btn-sm btn-info" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span>&nbsp;&nbsp;&nbsp;<span class="btn btn-sm btn-warning" title="Eliminar" onclick="activar('.$registrar->post_id.')">Activar</span>':
                         '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="tags_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="Tags">Tags</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
