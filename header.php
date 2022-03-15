@@ -23,6 +23,8 @@
         <link href="src/style.css" rel="stylesheet">
         <link href="src/lightbox.css" rel="stylesheet" />
         
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweerAlert -->
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Lobster&family=Montserrat&display=swap" rel="stylesheet">

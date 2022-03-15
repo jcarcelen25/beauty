@@ -21,6 +21,9 @@ body {
     background-color:#fff;
 }
 
+.white { color:#fff; }
+.white:hover { color:#fff; }
+
 h1, h2 {
     margin: 1.5rem;
     font-family: 'Lobster', cursive;
@@ -78,37 +81,45 @@ p {
   text-align: center;
 }
 
+.btn-coffe { color:#fff; border:solid 1px #fff; border-radius:15px; text-decoration:none; padding:5px 10px; font-weight:bold; font-size:1.2em; }
+.btn-coffe:hover { color:#fff; }
+
 #footer {
     background-color: #424652;
 }
 
 .footer-list {
     color:#fff;
-    list-style: none;
+    text-align:left;
 }
 
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .icons-table { float: right; margin-right: 10%; }
+    .coffe { position:fixed; bottom:20px; right:20px; width:90%; height:25%; background-color:#AD727D; border-radius:25px; box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2); color:#fff; }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .icons-table { float: right; margin-right: 10%; }
+    .coffe { position:fixed; bottom:20px; right:20px; width:60%; height:30%; background-color:#AD727D; border-radius:25px; box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2); color:#fff; }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .icons-table { float: right; margin-top: 12%; }
+    .coffe { position:fixed; bottom:20px; right:20px; width:30%; height:30%; background-color:#AD727D; border-radius:25px; box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2); color:#fff; }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .icons-table { float: right; margin-top: 12%; }
+    .coffe { position:fixed; bottom:20px; right:20px; width:20%; height:20%; background-color:#AD727D; border-radius:25px; box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2); color:#fff; }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .icons-table { float: right; margin-top: 12%; }
+    .coffe { position:fixed; bottom:20px; right:20px; width:20%; height:20%; background-color:#AD727D; border-radius:25px; box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2); color:#fff; }
 }

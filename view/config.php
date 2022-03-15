@@ -93,11 +93,15 @@
                             <div class="col-12 col-md-1"></div>
                           </div>
                         </div>
-                      </div><!-- /.card-body -->
+                      </div>
                     </div> <!-- .card -->
+                  </div>
+                </div>
+              </div><!-- /.card-body -->
+            </div>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
   </div>
 <!-- ./wrapper -->
