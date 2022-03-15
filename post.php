@@ -1,298 +1,275 @@
 <?php include './header.php'; ?>
 <?php include './menu.php'; ?>
+<?php $slug = $_REQUEST["ver"]; ?>
+<?php
+    $query = mysqli_query($conexion, "
+                        SELECT post_id, post_title, post_summary, post_published, post_content
+                        FROM post
+                        WHERE post_slug = '$slug'
+                        AND post_status = 1; ");
+    if ($row = mysqli_fetch_array($query)) {
+        $post_id = $row['post_id'];
+        $post_title = $row['post_title'];
+        $post_summary = $row['post_summary'];
+        $post_published = $row['post_published'];
+        $post_content = $row['post_content'];
+    }
+?>
 
-    <body>
-        <div class="container">
-            
-            <div class="row bg-white">
-            
-                <div class="col-12"><br><br><br>
-                    <div class="row">
-                        <div class="col-12 col-md-8">
-                            <center>
-                                <div style="width:95%;">
-                                    <h1>Tendencias en la industria</h1>
-                                    <p>El mundo está cambiando con gran rapidez y la industria de la moda no es la excepción. Los avances en la tecnología propician la aparición de nuevos modelos de negocio disruptivos que transforman la manera de hacer las cosas en la industria. Además, el consumidor es cada vez más consciente y empoderado, pues busca productos y servicios que no afecten el medio ambiente y que sean socialmente responsables. Este, a su vez, también amplía sus demandas, expectativas, quejas y comentarios por medio de las redes sociales.</p>
-                                    <a href="images/post/01.jpg" data-lightbox="models"><img src="images/post/01.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/02.jpg" data-lightbox="models"><img src="images/post/02.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/03.jpg" data-lightbox="models"><img src="images/post/03.jpg" style="width:90%;" /></a><br><br>
-
-                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
-                                    
-                                    <a href="images/post/4.jpg" data-lightbox="models"><img src="images/post/4.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/5.jpg" data-lightbox="models"><img src="images/post/5.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/6.jpg" data-lightbox="models"><img src="images/post/6.jpg" style="width:90%;" /></a><br><br>
-                                    
-                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
-                                    
-                                    <a href="images/post/7.jpg" data-lightbox="models"><img src="images/post/7.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/8.jpg" data-lightbox="models"><img src="images/post/8.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/9.jpg" data-lightbox="models"><img src="images/post/9.jpg" style="width:90%;" /></a><br><br>
-                                    
-                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
-                                    
-                                    <a href="images/post/10.jpg" data-lightbox="models"><img src="images/post/10.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/11.jpg" data-lightbox="models"><img src="images/post/11.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/12.jpg" data-lightbox="models"><img src="images/post/12.jpg" style="width:90%;" /></a><br><br>
-                                    
-                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
-                                    
-                                    <a href="images/post/13.jpg" data-lightbox="models"><img src="images/post/13.jpg" style="width:90%;" /></a><br><br>
-                                    <a href="images/post/14.jpg" data-lightbox="models"><img src="images/post/14.jpg" style="width:90%;" /></a><br><br>
-                                    
-                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:90%;" /><br><br>
-                                    
-                                </div>
-                            </center>
-                        </div>
-                        
-                        <div class="col-12 col-md-4"><br><br><br><br>
-                            <center>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div style="width:80%;">
-                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:100%;" /><br><br>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3>Entradas populares</h3>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div style="width:80%;">
-                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:100%;" /><br><br>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3>Entradas recientes</h3>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div style="width:80%;">
-                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:100%;" /><br><br>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3>Entradas recomendadas</h3>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div style="width:80%;">
-                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:100%;" /><br><br>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3>Otros usuarios miran</h3>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-5">
-                                        <img src="images/post/1.jpg" style="width:100%;">
-                                        <a href="post.php?ver=">
-                                            <div class="overlay">
-                                                <div class="text">¿Cabello rojo o negro?</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="row"><br><br></div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div style="width:80%;">
-                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/557/916/small/women-day-sale-horizontal-banner-illustration-free-vector.jpg" style="width:100%;" /><br><br>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                            </center>
-                            
-                        </div>
-                    </div><br><br><br>
+<body>
+    <div class="container">
+        <div class="row bg-white">
+            <div class="col-12"><br><br><br>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <center>
+                            <div style="width:95%;">
+                                <h2><?php echo $post_title; ?></h2>
+                                <p><?php echo $post_summary; ?></p>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT image_url
+                                                        FROM image
+                                                        WHERE image_status = 1
+                                                        AND id_post = $post_id
+                                                        ORDER BY image_position DESC; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<a href="images/post/'.$row['image_url'].'" data-lightbox="models"><img src="images/post/'.$row['image_url'].'" style="width:90%;" /></a><br><br>';
+                                    }
+                                ?>
+                                <p><?php echo $post_content; ?></p>
+                            </div>
+                        </center>
+                    </div>
                     
-                </div>
-            
-            
+                    <div class="col-12 col-md-4"><br><br><br><br>
+                        <center>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>Entradas populares</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row"><br></div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            
+                            <div class="row"><br><br></div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>Entradas recientes</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row"><br></div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            
+                            <div class="row"><br><br></div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>Entradas recomendadas</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row"><br></div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            
+                            <div class="row"><br><br></div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>Otros usuarios miran</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row"><br></div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug, image_url
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 2; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<div class="col-5">';
+                                            echo '<img src="images/post/'.$row['image_url'].'" style="width:100%;">';
+                                            echo '<a href="post.php?ver='.$row['post_slug'].'">';
+                                                echo '<div class="overlay">';
+                                                    echo '<div class="text">'.$row['post_title'].'</div>';
+                                                echo '</div>';
+                                            echo '</a>';
+                                        echo '</div>';
+                                    }
+                                ?>
+                                <div class="col-1"></div>
+                            </div>
+                            
+                            <div class="row"><br><br></div>
+                        </center>
+                    </div>
+                </div><br><br><br>
             </div>
-            
-        
-
+        </div>
 <?php include './footer.php'; ?>

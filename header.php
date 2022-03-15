@@ -17,7 +17,7 @@
         <meta name="description" content="<?php echo $descripcion; ?>">
         <meta name="keywords" content="<?php echo $keywords; ?>"/>
         <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#000">
+        <meta name="theme-color" content="#fbc1cd">
         
         <link href="src/bootstrap.css" rel="stylesheet">
         <link href="src/style.css" rel="stylesheet">
