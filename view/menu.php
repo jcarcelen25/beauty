@@ -190,7 +190,7 @@
             <li class="nav-item">
               <a href="ads.php" class="nav-link">
                 <i class="nav-icon fas fa-credit-card"></i>
-                <p>Google Ads</p>
+                <p>Ads</p>
               </a>
             </li>
             

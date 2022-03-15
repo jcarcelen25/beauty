@@ -3,13 +3,19 @@
                     <div class="col-12 col-md-4">
                         <center>
                             <h4>Entradas populares</h4>
-                            <ol class="footer-list"> 
-                                <li><a>Hola mundo</a></li>
-                                <li><a>Hola mundo</a></li>
-                                <li><a>Hola mundo</a></li>
-                                <li><a>Hola mundo</a></li>
-                                <li><a>Hola mundo</a></li>
-                                <li><a>Hola mundo</a></li>
+                            <ol class="footer-list">
+                                <?php
+                                    $query = mysqli_query($conexion, "
+                                                        SELECT DISTINCT post_title, post_slug
+                                                        FROM post a
+                                                        JOIN image b ON a.post_id = b.id_post
+                                                        WHERE image_type = 3
+                                                        ORDER BY RAND()
+                                                        LIMIT 6; ");
+                                    while ($row = mysqli_fetch_array($query)) {
+                                        echo '<li><a href="post.php?ver='.$row['post_slug'].'" style="color:#fff; text-decoration:none;">'.$row['post_title'].'</a></li>';
+                                    }
+                                ?>
                             </ol>
                         </center>
                     </div>

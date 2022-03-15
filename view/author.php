@@ -6,11 +6,9 @@
   var controller = "author.php";
 </script>
 
-<div class="content-wrapper"><br> <!-- Content Wrapper. Contains page content -->
-    
+<div class="content-wrapper"><br> <!-- Content Wrapper. Contains page content -->    
     <section class="content"> <!-- Main content -->
       <div class="container-fluid"> <!-- Small boxes (Stat box) -->
-        
         <div class="row">
           <div class="col-12">
             <div class="card">
@@ -123,7 +121,6 @@
                   </div>
                 </div>
               </div> <!-- /.card-body -->
-          
             </div> <!-- .card -->
           </div>
         </div>

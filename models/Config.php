@@ -31,5 +31,11 @@
                     WHERE config_id = '$config_id';";
             return ejecutarConsulta($sql);
         }
+        
+        public function desactivar($config_id) {
+            $sql = "DELETE FROM config 
+                    WHERE config_id = '$config_id'; ";
+            return ejecutarConsulta($sql);
+        }
     }
 ?>
