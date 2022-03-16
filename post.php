@@ -32,12 +32,22 @@
                                                         FROM image
                                                         WHERE image_status = 1
                                                         AND id_post = $post_id
-                                                        ORDER BY image_position DESC; ");
+                                                        ORDER BY image_position ASC; ");
                                     while ($row = mysqli_fetch_array($query)) {
                                         echo '<a href="images/post/'.$row['image_url'].'" data-lightbox="models"><img src="images/post/'.$row['image_url'].'" style="width:90%;" /></a><br><br>';
                                     }
                                 ?>
-                                <p><?php echo $post_content; ?></p>
+                                <p><?php echo $post_content; ?></p><br><br>
+                                <div style="background-color:#AD727D; width:95%; padding:20px; color:#fff;">
+                                    Puedes donar $1 para recibir por correo una copia de toda la sesión de fotos utilizada en este post.<br>
+                                    De esta manera nos ayudas a continuar con la publicación de contenido.<br><br>
+                                    <?php
+                                        $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 4; ");
+                                        if ($row = mysqli_fetch_array($query)) {
+                                            echo '<a href="'.$row['config_value'].'" target="_blank" class="btn-coffe">Donar $1</a>';
+                                        }
+                                    ?>
+                                </div>
                             </div>
                         </center>
                     </div>

@@ -52,7 +52,7 @@
         
         public function desactivar($lastupdated, $image_id) {
             $sql = "UPDATE image SET 
-                    image_status = '1',
+                    image_status = '0',
                     lastupdated = '$lastupdated'
                     WHERE image_id = '$image_id';";
             return ejecutarConsulta($sql);
@@ -60,7 +60,7 @@
         
         public function activar($lastupdated, $image_id) {
             $sql = "UPDATE image SET 
-                    image_status = '0',
+                    image_status = '1',
                     lastupdated = '$lastupdated'
                     WHERE image_id = '$image_id';";
             return ejecutarConsulta($sql);

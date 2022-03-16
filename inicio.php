@@ -34,7 +34,8 @@
                                                     FROM image a 
                                                     JOIN post b ON b.post_id = a.id_post
                                                     WHERE a.image_status = 1
-                                                    AND a.image_type = 2; ");
+                                                    AND a.image_type = 2
+                                                    ORDER BY RAND(); ");
                                 while ($row = mysqli_fetch_array($query)) {
                                     $cont++;
                                     if ($cont == 1) {
