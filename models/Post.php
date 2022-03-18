@@ -100,5 +100,11 @@
                     WHERE ads_type = '$ads_type'; ";
             return ejecutarConsulta($sql);
         }
+        
+        public function mostrar_ads() {
+            $sql = "SELECT ads_id, ads_type, ads_count
+                    FROM ads; ";
+            return ejecutarConsulta($sql);
+        }
     }
 ?>
