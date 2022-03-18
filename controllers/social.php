@@ -135,5 +135,10 @@
             $respuesta = $social -> activar($_SESSION['author_id'], $social_id);
             echo $respuesta ? "1": "0";
         break;
+    
+        case 'registrar_origen':
+            $respuesta = $social -> registrar_origen($social_id);
+            echo $respuesta ? "1": "0";
+        break;
     }
 ?>

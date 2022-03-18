@@ -69,7 +69,7 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <table class="table table-responsive table-borderless table-striped dataTable dtr-inline">
+                    <table class="table  table-borderless table-striped dataTable dtr-inline">
                       <thead>
                         <th>N°</th>
                         <th>Título</th>
@@ -168,7 +168,7 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <table class="table table-responsive table-borderless table-striped dataTable dtr-inline">
+                    <table class="table  table-borderless table-striped dataTable dtr-inline">
                       <thead>
                         <th>N°</th>
                         <th>Título</th>
@@ -268,20 +268,34 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <table class="table table-responsive table-borderless table-striped dataTable dtr-inline">
+                    <table class="table  table-borderless table-striped dataTable dtr-inline">
                       <thead>
                         <th>N°</th>
                         <th>Nombre</th>
                         <th>Alcance</th>
-                        <th></th>
                       </thead>
                       <tbody>
+                        <?php
+                          $cont = 0;
+                          $sum = 0;
+                          $query = mysqli_query($conexion,
+                                               "SELECT social_name, social_count,
+                                                  (SELECT SUM(post_views) FROM post WHERE post_status = 1) AS total
+                                                FROM social; ");
+                          while ($row = mysqli_fetch_array($query)) {
+                              $cont++;
+                              $sum = (($row['social_count'] * 100) / $row['total']);
+                              echo '<tr>';
+                                echo '<td>'.$cont.'</td>';
+                                echo '<td>'.$row['social_name'].'</td>';
+                                echo '<td>'.number_format((($row['social_count'] * 100) / $row['total']), 2, '.', '').' %</td>';
+                              echo '</tr>';
+                          }
+                        ?>
                         <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td>0</td>
+                          <td>Orgánico</td>
+                          <td><?php echo number_format(100-$sum, 2, '.', ''); ?> %</td>
                         </tr>
                       </tbody>
                     </table>

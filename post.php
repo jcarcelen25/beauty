@@ -1,6 +1,24 @@
 <?php include './header.php'; ?>
 <?php include './menu.php'; ?>
-<?php $slug = $_REQUEST["ver"]; ?>
+<?php $slug = isset($_REQUEST["ver"])? $_REQUEST["ver"]:""; ?>
+<?php $origen = isset($_REQUEST["o"])? $_REQUEST["o"]:""; ?>
+
+<?php
+    if ($slug == "") {
+        echo '<script> location.href = "inicio.php"; </script>';
+    }
+?>
+
+<?php if ($origen != "") { ?>
+    <script>
+        $.post("controllers/social.php?accion=registrar_origen",{ "social_id": <?php echo $origen; ?> }, function(data) {
+            if (data == 0) {
+                console.log("Visita o no se pudo registrar");
+            }
+        });
+    </script>
+<?php } ?>
+
 <?php
     $query = mysqli_query($conexion, "
                         SELECT post_id, post_title, post_summary, post_published, post_content
@@ -17,9 +35,7 @@
 ?>
 <script>
     $.post("controllers/post.php?accion=visita",{ "post_id": <?php echo $post_id; ?> }, function(data) {
-        if (data == 1) {
-            console.log("Visita registrada");
-        } else {
+        if (data == 0) {
             console.log("Visita no se pudo registrar");
         }
     });

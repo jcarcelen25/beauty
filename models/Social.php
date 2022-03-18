@@ -63,5 +63,15 @@
                     WHERE social_id = '$social_id';";
             return ejecutarConsulta($sql);
         }
+        
+        public function registrar_origen($social_id) {
+            $sql = "UPDATE social
+                    SET social_count = (
+                        (SELECT social_count
+                         FROM social
+                         WHERE social_id = $social_id) + 1)
+                    WHERE social_id = $social_id; ";
+            return ejecutarConsulta($sql);
+        }
     }
 ?>
