@@ -35,7 +35,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="dashboard.php" class="brand-link">        
+      <a href="dashboard.php" class="brand-link text-center">        
         <span class="brand-text font-weight-bold">Beauty & Photography</span>
       </a>
   
@@ -43,23 +43,9 @@
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <i class="fa fa-user fa-2x"></i>
-          </div>
-          <div class="info">
+          <div class="info text-center">
+            <i class="fa fa-user fa-2x"></i><br>
             <a href="#" class="d-block"><?php echo $_SESSION['author_user']; ?></a>
-          </div>
-        </div>
-  
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Buscar" aria-label="Buscar">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
-            </div>
           </div>
         </div>
   

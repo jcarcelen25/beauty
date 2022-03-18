@@ -16,13 +16,15 @@
         <meta name="author" content="<?php echo$desarrollador; ?>" />
         <meta name="description" content="<?php echo $descripcion; ?>">
         <meta name="keywords" content="<?php echo $keywords; ?>"/>
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="noindex, nofollow" />
         <meta name="theme-color" content="#fbc1cd">
         
         <link href="src/bootstrap.css" rel="stylesheet">
         <link href="src/style.css" rel="stylesheet">
         <link href="src/lightbox.css" rel="stylesheet" />
         
+        <script src="src/bootstrap.js"></script>
+        <script src="src/lightbox-plus-jquery.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweerAlert -->
         
         <link rel="preconnect" href="https://fonts.googleapis.com">

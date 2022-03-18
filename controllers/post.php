@@ -13,6 +13,7 @@
     $post_summary = isset($_POST["post_summary"])? LimpiarCadena($_POST["post_summary"]):"";
     $post_content = isset($_POST["post_content"])? LimpiarCadena($_POST["post_content"]):"";
     $id_author = isset($_POST["id_author"])? LimpiarCadena($_POST["id_author"]):"";
+    $ads_type = isset($_POST["ads_type"])? LimpiarCadena($_POST["ads_type"]):"";
     
     $post = new Post();
     
@@ -27,8 +28,8 @@
                     "2" => $registrar->post_slug,
                     "3" => substr($registrar->post_summary, 0, 150),
                     "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
-                    "5" => ($registrar->visitas > 0)? $registrar->visitas :'sin_visitas',
-                    "6" => ($registrar->likes > 0)? $registrar->likes : 'sin_likes',
+                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
+                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : 'sin_likes',
                     "7" => $registrar->author_user,
                     "8" => $registrar->post_published,
                     "9" => ($registrar->post_status == "0")?
@@ -59,8 +60,8 @@
                     "2" => $registrar->post_slug,
                     "3" => substr($registrar->post_summary, 0, 150),
                     "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
-                    "5" => ($registrar->visitas > 0)? $registrar->visitas :'sin_visitas',
-                    "6" => ($registrar->likes > 0)? $registrar->likes : 'sin_likes',
+                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
+                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : 'sin_likes',
                     "7" => $registrar->author_user,
                     "8" => $registrar->post_published,
                     "9" => ($registrar->post_status == "0")?
@@ -91,8 +92,8 @@
                     "2" => $registrar->post_slug,
                     "3" => substr($registrar->post_summary, 0, 150),
                     "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
-                    "5" => ($registrar->visitas > 0)? $registrar->visitas :'sin_visitas',
-                    "6" => ($registrar->likes > 0)? $registrar->likes : 'sin_likes',
+                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
+                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : 'sin_likes',
                     "7" => $registrar->author_user,
                     "8" => $registrar->post_published,
                     "9" => ($registrar->post_status == "0")?
@@ -135,6 +136,21 @@
     
         case 'activar':
             $respuesta = $post -> activar($_SESSION['author_id'], $post_id);
+            echo $respuesta ? "1": "0";
+        break;
+    
+        case 'like':
+            $respuesta = $post -> like($post_id);
+            echo $respuesta ? "1": "0";
+        break;
+    
+        case 'visita':
+            $respuesta = $post -> visita($post_id);
+            echo $respuesta ? "1": "0";
+        break;
+    
+        case 'donar':
+            $respuesta = $post -> donar($ads_type);
             echo $respuesta ? "1": "0";
         break;
     }

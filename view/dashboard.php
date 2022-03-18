@@ -12,7 +12,12 @@
               <div class="col-6"> <!-- small box -->
                 <div class="small-box bg-info">
                   <div class="inner">
-                    <h3>150</h3>
+                    <?php
+                        $query = mysqli_query($conexion, "SELECT COUNT(post_id) AS total FROM post WHERE post_status = 1; ");
+                        if ($row = mysqli_fetch_array($query)) {
+                            echo '<h3>'.$row['total'].'</h3>';
+                        }
+                    ?>
                     <p>Post publicados</p>
                   </div>
                   <div class="icon">
@@ -24,7 +29,12 @@
               <div class="col-6"> <!-- small box -->
                 <div class="small-box bg-success">
                   <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <?php
+                        $query = mysqli_query($conexion, "SELECT COUNT(image_id) AS total FROM image WHERE image_status = 1; ");
+                        if ($row = mysqli_fetch_array($query)) {
+                            echo '<h3>'.$row['total'].'</h3>';
+                        }
+                    ?>
                     <p>Fotos</p>
                   </div>
                   <div class="icon">
@@ -90,7 +100,12 @@
               <div class="col-6"> <!-- small box -->
                 <div class="small-box bg-warning">
                   <div class="inner">
-                    <h3>44</h3>
+                    <?php
+                        $query = mysqli_query($conexion, "SELECT SUM(post_views) AS total FROM post WHERE post_status = 1; ");
+                        if ($row = mysqli_fetch_array($query)) {
+                            echo '<h3>'.$row['total'].'</h3>';
+                        }
+                    ?>
                     <p>Visualizaciones</p>
                   </div>
                   <div class="icon">
@@ -102,8 +117,13 @@
               <div class="col-6"> <!-- small box -->
                 <div class="small-box bg-danger">
                   <div class="inner">
-                    <h3>150</h3>
-                    <p>Clics</p>
+                    <?php
+                        $query = mysqli_query($conexion, "SELECT SUM(ads_count) AS total FROM ads; ");
+                        if ($row = mysqli_fetch_array($query)) {
+                            echo '<h3>'.$row['total'].'</h3>';
+                        }
+                    ?>
+                    <p>Clics en <i>donar</i></p>
                   </div>
                   <div class="icon">
                     <i class="ion ion-checkmark"></i>
@@ -211,7 +231,6 @@
               </div>
             </div>
           </div>
-        
       </div><!-- /.container-fluid -->
     </section>
   </div>

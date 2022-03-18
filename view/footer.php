@@ -201,30 +201,103 @@
         <script>
             var chartOptions = { legend: { display: false } };
             
+            // post vs fotos
             var Chart1 = document.getElementById("Chart1");            
             var data1 = {
                 label: "Post", fill: true, borderColor: '#00c0ef', 
-                data: [5, 5, 5, 5, 4, 6, 5, 6, 4, 6, 5, 6, 7, 5, 9, 8, 7, 6, 5, 6, 5, 7, 6, 7, 4, 5, 5, 5]
+                data: [ <?php
+                        $days = date( 't', strtotime($fecha));
+                        for ($i = 1; $i <= $days; $i++) {
+                            $query = mysqli_query($conexion,
+                                                 "SELECT COUNT(post_id) AS total
+                                                  FROM post
+                                                  WHERE post_status = 1
+                                                  AND YEAR(post_published) = YEAR(CURRENT_DATE())
+                                                  AND MONTH(post_published) = MONTH(CURRENT_DATE())
+                                                  AND DAY(post_published) = $i; ");
+                            if ($row = mysqli_fetch_array($query)) {
+                                echo $row['total'].',';
+                            }                            
+                        }  
+                    ?> ]
             };
             var data2 = {
                 label: "Fotos", fill: false, borderColor: '#00a65a',
-                data: [15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 16, 17, 14, 15, 16, 14, 15, 16]
+                data: [ <?php
+                        for ($i = 1; $i <= $days; $i++) {
+                            $query = mysqli_query($conexion,
+                                                   "SELECT COUNT(b.image_id) AS total 
+                                                    FROM post a 
+                                                    JOIN image b ON a.post_id = b.id_post
+                                                    WHERE b.image_status = 1
+                                                    AND YEAR(post_published) = YEAR(CURRENT_DATE()) 
+                                                    AND MONTH(post_published) = MONTH(CURRENT_DATE())
+                                                    AND DAY(post_published) = $i; ");
+                            if ($row = mysqli_fetch_array($query)) {
+                                echo $row['total'].',';
+                            }                            
+                        }  
+                    ?> ]
             };
-            var Chart1Data = { labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"], datasets: [data1, data2] };
+            var Chart1Data = {
+                labels: [ <?php
+                        for ($i = 1; $i <= $days; $i++) {
+                            echo $i.',';                         
+                        }  
+                    ?> ],
+                datasets: [data1, data2]
+            };
             var lineChart = new Chart(Chart1, { type: 'line', data: Chart1Data, options: chartOptions });
             
+            // visualizaciones vs donaciones
             var Chart2 = document.getElementById("Chart2");
             var data3 = {
                 label: "Clics", fill: true, borderColor: '#d43444', 
-                data: [5, 5, 5, 5, 4, 6, 5, 6, 4, 6, 5, 6, 7, 5, 9, 8, 7, 6, 5, 6, 5, 7, 6, 7, 4, 5, 5, 5]
+                data: [ <?php
+                        for ($i = 1; $i <= $days; $i++) {
+                            $query = mysqli_query($conexion,
+                                                   "SELECT SUM(post_views) AS total
+                                                    FROM post_audit
+                                                    WHERE YEAR(audit_date) = YEAR(CURRENT_DATE()) 
+                                                    AND MONTH(audit_date) = MONTH(CURRENT_DATE())
+                                                    AND DAY(audit_date) = $i; ");
+                            if ($row = mysqli_fetch_array($query)) {
+                                echo $row['total'].',';
+                            }                            
+                        }  
+                    ?> ]
             };
             var data4 = {
                 label: "Visualizaciones", fill: false, borderColor: '#fac217',
-                data: [15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 16, 17, 14, 15, 16, 14, 15, 16]
+                data: [ <?php
+                        for ($i = 1; $i <= $days; $i++) {
+                            $query = mysqli_query($conexion,
+                                                   "SELECT SUM(ads_count) AS total
+                                                    FROM ads_audit
+                                                    WHERE YEAR(audit_date) = YEAR(CURRENT_DATE()) 
+                                                    AND MONTH(audit_date) = MONTH(CURRENT_DATE())
+                                                    AND DAY(audit_date) = $i; ");
+                            if ($row = mysqli_fetch_array($query)) {
+                                if ($row['total'] > 0) {
+                                    echo $row['total'].',';    
+                                } else {
+                                    echo '0,';
+                                }
+                            }                            
+                        }  
+                    ?> ]
             };
-            var Chart2Data = { labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"], datasets: [data3, data4] };
+            var Chart2Data = {
+                labels: [ <?php
+                        for ($i = 1; $i <= $days; $i++) {
+                            echo $i.',';                         
+                        }  
+                    ?> ],
+                datasets: [data3, data4]
+            };
             var lineChart2 = new Chart(Chart2, { type: 'line', data: Chart2Data, options: chartOptions });
             
+            // ingresos vs egresos
             var Chart3 = document.getElementById("Chart3");
             var data5 = {
                 label: "Ingresos", fill: true, borderColor: '#6800f0', 
@@ -234,7 +307,14 @@
                 label: "Egresos", fill: false, borderColor: '#43ca98',
                 data: [15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 16, 17, 14, 15, 16, 14, 15, 16]
             };
-            var Chart3Data = { labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"], datasets: [data5, data6] };
+            var Chart3Data = {
+                labels: [ <?php
+                        for ($i = 1; $i <= $days; $i++) {
+                            echo $i.',';                         
+                        }  
+                    ?> ],
+                datasets: [data5, data6]
+            };
             var lineChart3 = new Chart(Chart3, { type: 'line', data: Chart3Data, options: chartOptions });
         </script>
     </body>

@@ -15,7 +15,15 @@
         $post_content = $row['post_content'];
     }
 ?>
-
+<script>
+    $.post("controllers/post.php?accion=visita",{ "post_id": <?php echo $post_id; ?> }, function(data) {
+        if (data == 1) {
+            console.log("Visita registrada");
+        } else {
+            console.log("Visita no se pudo registrar");
+        }
+    });
+</script>
 <body>
     <div class="container">
         <div class="row bg-white">
@@ -25,10 +33,14 @@
                         <center>
                             <div style="width:95%;">
                                 <h2><?php echo $post_title; ?></h2>
-                                <p><?php echo $post_summary; ?></p>
+                                <p><?php echo $post_content; ?></p><br><br>
+                                <div style="background-color:#3B5661; width:95%; padding:20px; color:#fff;" onclick="like(<?php echo $post_id; ?>)">
+                                    <img src="images/icons/corazon.png" style="margin:5px; width:40px;" />
+                                    Déja tu like
+                                </div><br><br>
                                 <?php
-                                    $query = mysqli_query($conexion, "
-                                                        SELECT image_url
+                                    $query = mysqli_query($conexion,
+                                                        "SELECT image_url
                                                         FROM image
                                                         WHERE image_status = 1
                                                         AND id_post = $post_id
@@ -37,14 +49,18 @@
                                         echo '<a href="images/post/'.$row['image_url'].'" data-lightbox="models"><img src="images/post/'.$row['image_url'].'" style="width:90%;" /></a><br><br>';
                                     }
                                 ?>
-                                <p><?php echo $post_content; ?></p><br><br>
+                                <p><?php echo $post_summary; ?></p><br><br>
+                                <div style="background-color:#3B5661; width:95%; padding:20px; color:#fff;" onclick="like(<?php echo $post_id; ?>)">
+                                    <img src="images/icons/corazon.png" style="margin:5px; width:40px;" />
+                                    Déja tu like
+                                </div><br><br>
                                 <div style="background-color:#AD727D; width:95%; padding:20px; color:#fff;">
                                     Puedes donar $1 para recibir por correo una copia de toda la sesión de fotos utilizada en este post.<br>
                                     De esta manera nos ayudas a continuar con la publicación de contenido.<br><br>
                                     <?php
                                         $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 4; ");
                                         if ($row = mysqli_fetch_array($query)) {
-                                            echo '<a href="'.$row['config_value'].'" target="_blank" class="btn-coffe">Donar $1</a>';
+                                            echo '<a href="'.$row['config_value'].'" target="_blank" onclick="donar(1)" class="btn-coffe">Donar $1</a>';
                                         }
                                     ?>
                                 </div>

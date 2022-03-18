@@ -60,17 +60,17 @@
                         <?php
                             $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 4; ");
                             if ($row = mysqli_fetch_array($query)) {
-                                echo '<td style="text-align:center;"><a href="'.$row['config_value'].'" target="_blank" class="btn-coffe">$1</a></td>';
+                                echo '<td style="text-align:center;"><a href="'.$row['config_value'].'" target="_blank" onclick="donar(1)" class="btn-coffe">$1</a></td>';
                             }
                             
                             $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 2; ");
                             if ($row = mysqli_fetch_array($query)) {
-                                echo '<td style="text-align:center;"><a href="'.$row['config_value'].'" target="_blank" class="btn-coffe">$2</a></td>';
+                                echo '<td style="text-align:center;"><a href="'.$row['config_value'].'" target="_blank" onclick="donar(2)" class="btn-coffe">$2</a></td>';
                             }
                             
                             $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 1; ");
                             if ($row = mysqli_fetch_array($query)) {
-                                echo '<td style="text-align:center;"><a href="'.$row['config_value'].'" target="_blank" class="btn-coffe">$5</a></td>';
+                                echo '<td style="text-align:center;"><a href="'.$row['config_value'].'" target="_blank" onclick="donar(3)" class="btn-coffe">$5</a></td>';
                             }
                         ?>
                     </tr>
@@ -78,14 +78,12 @@
                 <?php
                     $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 3; ");
                     if ($row = mysqli_fetch_array($query)) {
-                        echo 'Llévate toda la galería de fotos <a href="'.$row['config_value'].'" target="_blank" class="white">aquí</a>';
+                        echo 'Llévate toda la galería de fotos <a href="'.$row['config_value'].'" onclick="donar(10)" target="_blank" class="white">aquí</a>';
                     }
                 ?>
             </center>
         </div>
 
-        <script src="src/bootstrap.js"></script>
-        <script src="src/lightbox-plus-jquery.js"></script>
         <script>
             var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
             var alertTrigger = document.getElementById('liveAlertBtn');
@@ -94,6 +92,34 @@
                 var wrapper = document.createElement('div');
                 wrapper.innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
                 alertPlaceholder.append(wrapper);
+            }
+            
+            function like(id) {
+                $.post("controllers/post.php?accion=like",{ "post_id": id }, function(data) {
+                    if (data == 1) {
+                        Swal.fire(
+                            'Genial!',
+                            'Gracias por tu like!',
+                            'success'
+                        );
+                    } else {
+                        Swal.fire(
+                            'Error!',
+                            'No se pudo guardar tu like, intenta de nuevo más tarde!',
+                            'warning'
+                        );
+                    }
+                });
+            }
+            
+            function donar(usd) {
+                $.post("controllers/post.php?accion=donar",{ "ads_type": usd }, function(data) {
+                    if (data == 1) {
+                        console.log("Dato registrado");
+                    } else {
+                        console.log("Dato no se pudo registrar");
+                    }
+                });
             }
             
             $("#frmNewsletter").on('submit',function(ex) {
