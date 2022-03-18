@@ -14,17 +14,21 @@
             <div class="col-12 col-md-4">
                 <table class="icons-table">
                     <tr>
-                        <td><a target="_blank" href=""><img src="images/icons/facebook.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
-                        <td><a target="_blank" href=""><img src="images/icons/instagram.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
-                        <td><a target="_blank" href=""><img src="images/icons/telegram.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
-                        <td><a target="_blank" href=""><img src="images/icons/mail.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
-                        <td><a target="_blank" href=""><img src="images/icons/sharethis.png" style="width:25px; margin:5px 20px 5px 10px;" /></a></td>
-                        <td>
-                          <?php
-                            if ($_SESSION['author_id'] > 0) { echo '<a href="view/dashboard.php" target="_blank" class="btn btn-outline-secondary"><img src="images/icons/menu.png" style="width:25px;" /></a>'; }
-                            else {echo '<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="images/icons/menu.png" style="width:25px;" /></button>'; }
-                          ?>
-                        </td>
+                      <?php
+                        $query = mysqli_query($conexion, "SELECT social_url, social_icon FROM social WHERE social_status = 1 ORDER BY social_position ASC; ");
+                        while ($row = mysqli_fetch_array($query)) {
+                            $post_id = $row['post_id'];
+                            echo '<td><a target="_blank" href="'.$row['social_url'].'"><img src="images/icons/'.$row['social_icon'].'" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>';
+                        }
+                      ?>
+                      <td><a target="_blank" href=""><img src="images/icons/mail.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
+                      <td><a target="_blank" href=""><img src="images/icons/sharethis.png" style="width:25px; margin:5px 20px 5px 10px;" /></a></td>
+                      <td>
+                        <?php
+                          if ($_SESSION['author_id'] > 0) { echo '<a href="view/dashboard.php" target="_blank" class="btn btn-outline-secondary"><img src="images/icons/menu.png" style="width:25px;" /></a>'; }
+                          else {echo '<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="images/icons/menu.png" style="width:25px;" /></button>'; }
+                        ?>
+                      </td>
                     </tr>
                 </table>
             </div>

@@ -10,7 +10,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         
-        <title><?php echo $empresa; ?></title>
+        <title>Beauty & Photography</title>
         <link rel="shortcut icon" href="images/logo/favicon.ico" type="image/png">
 
         <meta name="author" content="<?php echo$desarrollador; ?>" />

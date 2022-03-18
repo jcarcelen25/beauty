@@ -37,7 +37,7 @@
                         '<small class="badge badge-success">Activo</small>',
                     "10" => ($registrar->post_status == "0")?
                         '<span class="btn btn-sm btn-info" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span>&nbsp;&nbsp;&nbsp;<span class="btn btn-sm btn-warning" title="Eliminar" onclick="activar('.$registrar->post_id.')">Activar</span>':
-                        '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="tags_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="Tags">Tags</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
+                        '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="usd_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="USD">USD</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
                 );
             }
             
@@ -69,7 +69,7 @@
                         '<small class="badge badge-success">Activo</small>',
                     "10" => ($registrar->post_status == "0")?
                         '<span class="btn btn-sm btn-info" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span>&nbsp;&nbsp;&nbsp;<span class="btn btn-sm btn-warning" title="Eliminar" onclick="activar('.$registrar->post_id.')">Activar</span>':
-                        '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="tags_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="Tags">Tags</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
+                        '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="usd_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="USD">USD</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
                 );
             }
             
@@ -101,7 +101,7 @@
                         '<small class="badge badge-success">Activo</small>',
                     "10" => ($registrar->post_status == "0")?
                         '<span class="btn btn-sm btn-info" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span>&nbsp;&nbsp;&nbsp;<span class="btn btn-sm btn-warning" title="Eliminar" onclick="activar('.$registrar->post_id.')">Activar</span>':
-                        '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="tags_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="Tags">Tags</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
+                        '<span class="btn btn-sm btn-info" style="margin:1px;" title="Editar" onclick="mostrarUno('.$registrar->post_id.')">Editar</span><br><a href="fotos_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-success" title="Fotos">Fotos</a><br><a href="usd_uno.php?id='.$registrar->post_id.'" target="modalIframe" onclick="verModal(true)" style="margin:1px;" class="btn btn-sm btn-warning" title="USD">USD</a><br><span style="margin:1px;" class="btn btn-sm btn-danger" title="Eliminar" onclick="desactivar('.$registrar->post_id.')">Desactivar</span>'
                 );
             }
             

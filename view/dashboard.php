@@ -73,19 +73,30 @@
                       <thead>
                         <th>N°</th>
                         <th>Título</th>
-                        <th>Portada</th>
                         <th>Fecha</th>
                         <th>Visualizaciones</th>
-                        <th></th>
+                        <th>Likes</th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
+                        <?php
+                          $cont = 0;
+                          $query = mysqli_query($conexion,
+                                               "SELECT post_title, post_views, post_likes, DATE_FORMAT(post_published,'%d/%m/%Y') AS date
+                                                FROM post
+                                                WHERE post_status = 1
+                                                ORDER BY post_published DESC
+                                                LIMIT 10; ");
+                          while ($row = mysqli_fetch_array($query)) {
+                              $cont++;
+                              echo '<tr>';
+                                echo '<td>'.$cont.'</td>';
+                                echo '<td>'.$row['post_title'].'</td>';
+                                echo '<td>'.$row['date'].'</td>';
+                                echo '<td style="text-align:center;">'.$row['post_views'].'</td>';
+                                echo '<td style="text-align:center;">'.$row['post_likes'].'</td>';
+                              echo '</tr>';
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>
@@ -152,7 +163,7 @@
                   <div class="card-header">
                     <h3 class="card-title">
                       <i class="ion ion-clipboard mr-1"></i>
-                      Redes sociales
+                      Mejores post
                     </h3>
                   </div>
                   <!-- /.card-header -->
@@ -160,18 +171,31 @@
                     <table class="table table-responsive table-borderless table-striped dataTable dtr-inline">
                       <thead>
                         <th>N°</th>
-                        <th>Nombre</th>
-                        <th>Alcance</th>
-                        <th></th>
+                        <th>Título</th>
+                        <th>Fecha</th>
+                        <th>Visualizaciones</th>
+                        <th>Likes</th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
+                        <?php
+                          $cont = 0;
+                          $query = mysqli_query($conexion,
+                                               "SELECT post_title, post_views, post_likes, DATE_FORMAT(post_published,'%d/%m/%Y') AS date
+                                                FROM post
+                                                WHERE post_status = 1
+                                                ORDER BY post_likes DESC
+                                                LIMIT 10; ");
+                          while ($row = mysqli_fetch_array($query)) {
+                              $cont++;
+                              echo '<tr>';
+                                echo '<td>'.$cont.'</td>';
+                                echo '<td>'.$row['post_title'].'</td>';
+                                echo '<td>'.$row['date'].'</td>';
+                                echo '<td style="text-align:center;">'.$row['post_views'].'</td>';
+                                echo '<td style="text-align:center;">'.$row['post_likes'].'</td>';
+                              echo '</tr>';
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>
@@ -231,6 +255,61 @@
               </div>
             </div>
           </div>
+          
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="ion ion-clipboard mr-1"></i>
+                      Redes sociales
+                    </h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table class="table table-responsive table-borderless table-striped dataTable dtr-inline">
+                      <thead>
+                        <th>N°</th>
+                        <th>Nombre</th>
+                        <th>Alcance</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="ion ion-clipboard mr-1"></i>
+                      Redes sociales
+                    </h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    pastel
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
       </div><!-- /.container-fluid -->
     </section>
   </div>
