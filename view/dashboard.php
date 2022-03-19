@@ -211,7 +211,12 @@
                   <span class="info-box-icon"><i class="fas fa-money-bill"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Ingresos</span>
-                    <span class="info-box-number">$5200.00</span>
+                    <?php
+                      $query = mysqli_query($conexion, "SELECT SUM(count_ammount) AS total FROM count WHERE count_type = 1; ");
+                      if ($row = mysqli_fetch_array($query)) {
+                        echo '<span class="info-box-number">$'.number_format($row['total'], 2, '.', '').'</span>';
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -220,7 +225,12 @@
                   <span class="info-box-icon"><i class="fas fa-credit-card"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Egresos</span>
-                    <span class="info-box-number">$5200.00</span>
+                    <?php
+                      $query = mysqli_query($conexion, "SELECT SUM(count_ammount) AS total FROM count WHERE count_type = 0; ");
+                      if ($row = mysqli_fetch_array($query)) {
+                        echo '<span class="info-box-number">$'.number_format($row['total'], 2, '.', '').'</span>';
+                      }
+                    ?>
                   </div>
                 </div>  
               </div>
@@ -229,7 +239,12 @@
                   <span class="info-box-icon"><i class="fas fa-wallet"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">Total</span>
-                    <span class="info-box-number">$5200.00</span>
+                    <?php
+                      $query = mysqli_query($conexion, "SELECT SUM(count_ammount) AS total FROM count; ");
+                      if ($row = mysqli_fetch_array($query)) {
+                        echo '<span class="info-box-number">$'.number_format($row['total'], 2, '.', '').'</span>';
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -239,7 +254,7 @@
           <div class="col-md-6 col-12">
             <div class="row">
               <div class="col-12">
-                <div class="card"> <!-- Custom tabs (Charts with tabs)-->
+                <div class="card"> 
                   <div class="card-header">
                     <h3 class="card-title">
                       <i class="fas fa-chart-pie mr-1"></i>

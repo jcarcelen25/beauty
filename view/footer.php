@@ -305,18 +305,48 @@
             var Chart3 = document.getElementById("Chart3");
             var data5 = {
                 label: "Ingresos", fill: true, borderColor: '#6800f0', 
-                data: [5, 5, 5, 5, 4, 6, 5, 6, 4, 6, 5, 6, 7, 5, 9, 8, 7, 6, 5, 6, 5, 7, 6, 7, 4, 5, 5, 5]
+                data: [<?php
+                        for ($i = 1; $i <= 12; $i++) {
+                            $query = mysqli_query($conexion,
+                                                "SELECT SUM(count_ammount) AS total 
+                                                 FROM count 
+                                                 WHERE count_type = 1
+                                                 AND YEAR(count_date) = YEAR(CURRENT_DATE()) 
+                                                 AND MONTH(count_date) = $i; ");
+                            if ($row = mysqli_fetch_array($query)) {
+                                if ($row['total'] > 0) {
+                                    echo $row['total'].',';    
+                                } else {
+                                    echo '0,';
+                                }
+                            }                            
+                        }  
+                        
+                ?>]
             };
             var data6 = {
                 label: "Egresos", fill: false, borderColor: '#43ca98',
-                data: [15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 15, 14, 15, 13, 15, 16, 17, 14, 15, 16, 16, 17, 14, 15, 16, 14, 15, 16]
+                data: [<?php
+                        for ($i = 1; $i <= 12; $i++) {
+                            $query = mysqli_query($conexion,
+                                                "SELECT (SUM(count_ammount)*-1) AS total 
+                                                 FROM count 
+                                                 WHERE count_type = 0
+                                                 AND YEAR(count_date) = YEAR(CURRENT_DATE()) 
+                                                 AND MONTH(count_date) = $i; ");
+                            if ($row = mysqli_fetch_array($query)) {
+                                if ($row['total'] > 0) {
+                                    echo $row['total'].',';    
+                                } else {
+                                    echo '0,';
+                                }
+                            }                            
+                        }  
+                        
+                ?>]
             };
             var Chart3Data = {
-                labels: [ <?php
-                        for ($i = 1; $i <= $days; $i++) {
-                            echo $i.',';                         
-                        }  
-                    ?> ],
+                labels: [ 1,2,3,4,5,6,7,8,9,10,11,12 ],
                 datasets: [data5, data6]
             };
             var lineChart3 = new Chart(Chart3, { type: 'line', data: Chart3Data, options: chartOptions });
