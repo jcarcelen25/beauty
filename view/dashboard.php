@@ -317,7 +317,9 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    pastel
+                    <div class="tab-content">
+                      <canvas id="Chart4" width="500" height="130"></canvas>
+                    </div>
                   </div>
                 </div>
               </div>

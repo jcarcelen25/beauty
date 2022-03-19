@@ -262,7 +262,11 @@
                                                     AND MONTH(audit_date) = MONTH(CURRENT_DATE())
                                                     AND DAY(audit_date) = $i; ");
                             if ($row = mysqli_fetch_array($query)) {
-                                echo $row['total'].',';
+                                if ($row['total'] > 0) {
+                                    echo $row['total'].',';    
+                                } else {
+                                    echo '0,';
+                                }
                             }                            
                         }  
                     ?> ]
@@ -316,6 +320,32 @@
                 datasets: [data5, data6]
             };
             var lineChart3 = new Chart(Chart3, { type: 'line', data: Chart3Data, options: chartOptions });
+            
+            
+            new Chart(document.getElementById("Chart4"), {
+                type: 'pie',
+                data: {
+                  labels: [ <?php
+                                $query = mysqli_query($conexion, "SELECT social_name FROM social ORDER BY social_id ASC; ");
+                                while ($row = mysqli_fetch_array($query)) {
+                                    echo '"'.$row['social_name'].'",';
+                                }
+                              ?> "Orgánico" ],
+                  datasets: [{
+                    label: " %",
+                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                    data: [ <?php
+                                $sum = 0;
+                                $query = mysqli_query($conexion, "SELECT social_name, social_count, (SELECT SUM(post_views) FROM post WHERE post_status = 1) AS total FROM social ORDER BY social_id ASC; ");
+                                while ($row = mysqli_fetch_array($query)) {
+                                        $sum = (($row['social_count'] * 100) / $row['total']);
+                                        echo number_format((($row['social_count'] * 100) / $row['total']), 0).', ';
+                                }
+                                echo number_format(100-$sum, 0);
+                              ?> ]
+                  }]
+                }
+            });
         </script>
     </body>
 </html>
