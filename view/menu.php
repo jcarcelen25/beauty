@@ -17,7 +17,7 @@
           <a href="../inicio.php" target="_blank" class="nav-link"><i class="fas fa-eye"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" class="nav-link"><i class="fas fa-envelope"></i></a>
+          <a href="https://mail.hostinger.com" target="_blank" class="nav-link"><i class="fas fa-envelope"></i></a>
         </li>
       </ul>
   

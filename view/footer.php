@@ -256,8 +256,8 @@
                 data: [ <?php
                         for ($i = 1; $i <= $days; $i++) {
                             $query = mysqli_query($conexion,
-                                                   "SELECT SUM(post_views) AS total
-                                                    FROM post_audit
+                                                   "SELECT SUM(ads_count) AS total
+                                                    FROM ads_audit
                                                     WHERE YEAR(audit_date) = YEAR(CURRENT_DATE()) 
                                                     AND MONTH(audit_date) = MONTH(CURRENT_DATE())
                                                     AND DAY(audit_date) = $i; ");
@@ -276,8 +276,8 @@
                 data: [ <?php
                         for ($i = 1; $i <= $days; $i++) {
                             $query = mysqli_query($conexion,
-                                                   "SELECT SUM(ads_count) AS total
-                                                    FROM ads_audit
+                                                   "SELECT SUM(post_views) AS total
+                                                    FROM post_audit
                                                     WHERE YEAR(audit_date) = YEAR(CURRENT_DATE()) 
                                                     AND MONTH(audit_date) = MONTH(CURRENT_DATE())
                                                     AND DAY(audit_date) = $i; ");

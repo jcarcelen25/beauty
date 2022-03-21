@@ -6,6 +6,11 @@
         session_start();
     }
     
+    $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 6; ");
+    if ($row = mysqli_fetch_array($query)) {
+        $website = $row['config_value'];
+    }
+    
     $post_id = isset($_POST["post_id"])? LimpiarCadena($_POST["post_id"]):"";
     $post_title = isset($_POST["post_title"])? LimpiarCadena($_POST["post_title"]):"";
     $post_meta_title = isset($_POST["post_meta_title"])? LimpiarCadena($_POST["post_meta_title"]):"";
@@ -25,7 +30,7 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => $registrar->post_slug,
+                    "2" => '<pre style="width:350px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
                     "3" => substr($registrar->post_summary, 0, 150),
                     "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
                     "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
@@ -57,7 +62,7 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => $registrar->post_slug,
+                    "2" => '<pre style="width:350px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
                     "3" => substr($registrar->post_summary, 0, 150),
                     "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
                     "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
@@ -89,7 +94,7 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => $registrar->post_slug,
+                    "2" => '<pre style="width:350px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
                     "3" => substr($registrar->post_summary, 0, 150),
                     "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
                     "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
