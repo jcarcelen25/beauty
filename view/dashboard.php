@@ -1,110 +1,11 @@
 <?php include './header.php'; ?>
 <?php include './menu.php'; ?>
 
-  <div class="content-wrapper"><br> <!-- Content Wrapper. Contains page content -->    
+  <div class="content-wrapper"> <!-- Content Wrapper. Contains page content -->    
     <section class="content"> <!-- Main content -->
       <div class="container-fluid"> <!-- Small boxes (Stat box) -->
         
         <div class="row">
-          <div class="col-md-6 col-12">
-            <div class="row">
-              
-              <div class="col-6"> <!-- small box -->
-                <div class="small-box bg-info">
-                  <div class="inner">
-                    <?php
-                        $query = mysqli_query($conexion, "SELECT COUNT(post_id) AS total FROM post WHERE post_status = 1; ");
-                        if ($row = mysqli_fetch_array($query)) {
-                            echo '<h3>'.$row['total'].'</h3>';
-                        }
-                    ?>
-                    <p>Post publicados</p>
-                  </div>
-                  <div class="icon">
-                    <i class="ion ion-document"></i>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-6"> <!-- small box -->
-                <div class="small-box bg-success">
-                  <div class="inner">
-                    <?php
-                        $query = mysqli_query($conexion, "SELECT COUNT(image_id) AS total FROM image WHERE image_status = 1; ");
-                        if ($row = mysqli_fetch_array($query)) {
-                            echo '<h3>'.$row['total'].'</h3>';
-                        }
-                    ?>
-                    <p>Fotos</p>
-                  </div>
-                  <div class="icon">
-                    <i class="ion ion-images"></i>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-12">
-                <div class="card"> <!-- Custom tabs (Charts with tabs)-->
-                  <div class="card-header">
-                    <h3 class="card-title">
-                      <i class="fas fa-chart-pie mr-1"></i>
-                      Post del mes
-                    </h3>
-                  </div><!-- /.card-header -->
-                  <div class="card-body">
-                    <div class="tab-content">
-                      <canvas id="Chart1" width="500" height="130"></canvas>
-                    </div>
-                  </div><!-- /.card-body -->
-                </div>
-              </div>
-              
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">
-                      <i class="ion ion-clipboard mr-1"></i>
-                      Últimos post
-                    </h3>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body">
-                    <table class="table  table-borderless table-striped dataTable dtr-inline">
-                      <thead>
-                        <th>N°</th>
-                        <th>Título</th>
-                        <th>Fecha</th>
-                        <th>Visualizaciones</th>
-                        <th>Likes</th>
-                      </thead>
-                      <tbody>
-                        <?php
-                          $cont = 0;
-                          $query = mysqli_query($conexion,
-                                               "SELECT post_title, post_views, post_likes, DATE_FORMAT(post_published,'%d/%m/%Y') AS date
-                                                FROM post
-                                                WHERE post_status = 1
-                                                ORDER BY post_published DESC
-                                                LIMIT 10; ");
-                          while ($row = mysqli_fetch_array($query)) {
-                              $cont++;
-                              echo '<tr>';
-                                echo '<td>'.$cont.'</td>';
-                                echo '<td>'.$row['post_title'].'</td>';
-                                echo '<td>'.$row['date'].'</td>';
-                                echo '<td style="text-align:center;">'.$row['post_views'].'</td>';
-                                echo '<td style="text-align:center;">'.$row['post_likes'].'</td>';
-                              echo '</tr>';
-                          }
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
           <div class="col-md-6 col-12">
             <div class="row">
               
@@ -168,7 +69,7 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <table class="table  table-borderless table-striped dataTable dtr-inline">
+                    <table id="post2" class="table  table-borderless table-striped dataTable dtr-inline">
                       <thead>
                         <th>N°</th>
                         <th>Título</th>
@@ -184,6 +85,105 @@
                                                 FROM post
                                                 WHERE post_status = 1
                                                 ORDER BY post_likes DESC
+                                                LIMIT 10; ");
+                          while ($row = mysqli_fetch_array($query)) {
+                              $cont++;
+                              echo '<tr>';
+                                echo '<td>'.$cont.'</td>';
+                                echo '<td>'.$row['post_title'].'</td>';
+                                echo '<td>'.$row['date'].'</td>';
+                                echo '<td style="text-align:center;">'.$row['post_views'].'</td>';
+                                echo '<td style="text-align:center;">'.$row['post_likes'].'</td>';
+                              echo '</tr>';
+                          }
+                        ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-12">
+            <div class="row">
+              
+              <div class="col-6"> <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <?php
+                        $query = mysqli_query($conexion, "SELECT COUNT(post_id) AS total FROM post WHERE post_status = 1; ");
+                        if ($row = mysqli_fetch_array($query)) {
+                            echo '<h3>'.$row['total'].'</h3>';
+                        }
+                    ?>
+                    <p>Post publicados</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-document"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-6"> <!-- small box -->
+                <div class="small-box bg-success">
+                  <div class="inner">
+                    <?php
+                        $query = mysqli_query($conexion, "SELECT COUNT(image_id) AS total FROM image WHERE image_status = 1; ");
+                        if ($row = mysqli_fetch_array($query)) {
+                            echo '<h3>'.$row['total'].'</h3>';
+                        }
+                    ?>
+                    <p>Fotos</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-images"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="card"> <!-- Custom tabs (Charts with tabs)-->
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="fas fa-chart-pie mr-1"></i>
+                      Post del mes
+                    </h3>
+                  </div><!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="tab-content">
+                      <canvas id="Chart1" width="500" height="130"></canvas>
+                    </div>
+                  </div><!-- /.card-body -->
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="ion ion-clipboard mr-1"></i>
+                      Últimos post
+                    </h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="post1" class="table  table-borderless table-striped dataTable dtr-inline">
+                      <thead>
+                        <th>N°</th>
+                        <th>Título</th>
+                        <th>Fecha</th>
+                        <th>Visualizaciones</th>
+                        <th>Likes</th>
+                      </thead>
+                      <tbody>
+                        <?php
+                          $cont = 0;
+                          $query = mysqli_query($conexion,
+                                               "SELECT post_title, post_views, post_likes, DATE_FORMAT(post_published,'%d/%m/%Y') AS date
+                                                FROM post
+                                                WHERE post_status = 1
+                                                ORDER BY post_published DESC
                                                 LIMIT 10; ");
                           while ($row = mysqli_fetch_array($query)) {
                               $cont++;
@@ -283,7 +283,7 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
-                    <table class="table  table-borderless table-striped dataTable dtr-inline">
+                    <table id="redes" class="table  table-borderless table-striped dataTable dtr-inline">
                       <thead>
                         <th>N°</th>
                         <th>Nombre</th>
@@ -299,7 +299,7 @@
                                                 FROM social; ");
                           while ($row = mysqli_fetch_array($query)) {
                               $cont++;
-                              $sum = (($row['social_count'] * 100) / $row['total']);
+                              $sum += (($row['social_count'] * 100) / $row['total']);
                               echo '<tr>';
                                 echo '<td>'.$cont.'</td>';
                                 echo '<td>'.$row['social_name'].'</td>';
@@ -338,12 +338,30 @@
                   </div>
                 </div>
               </div>
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="ion ion-clipboard mr-1"></i>
+                      Espacio en disco
+                    </h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="tab-content">
+                      <canvas id="Chart5" width="500" height="130"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          
+          </div>        
       </div><!-- /.container-fluid -->
     </section>
   </div>
 <!-- ./wrapper -->
+
+
+
 
 <?php include './footer.php'; ?>

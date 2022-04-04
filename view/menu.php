@@ -5,7 +5,6 @@
   <iframe src="" id="modal_iframe" name="modalIframe" style="position: fixed; top: 25px; left: 10px; width: 97%; height: 95%; z-index: 99999; display: none; border: none; border-radius: 35px;"></iframe>
   
   <div class="wrapper">
-  
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->

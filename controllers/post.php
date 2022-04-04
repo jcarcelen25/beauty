@@ -30,11 +30,13 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => '<pre style="width:350px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
-                    "3" => substr($registrar->post_summary, 0, 150),
-                    "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
-                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
-                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : 'sin_likes',
+                    "2" => ($registrar->post_meta_title != '')?
+                            '<pre style="width:250px;">'.$website.'/videos.php?o=1&ver='.$registrar->post_slug.'</pre>':
+                            '<pre style="width:250px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
+                    "3" => ($registrar->post_meta_title != '')? 'video_post' : 'txt_post',
+                    "4" => ($registrar->fotos > 0)? $registrar->fotos : '0',
+                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'0',
+                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : '0',
                     "7" => $registrar->author_user,
                     "8" => $registrar->post_published,
                     "9" => ($registrar->post_status == "0")?
@@ -62,11 +64,13 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => '<pre style="width:350px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
-                    "3" => substr($registrar->post_summary, 0, 150),
-                    "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
-                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
-                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : 'sin_likes',
+                    "2" => ($registrar->post_meta_title != '')?
+                            '<pre style="width:250px;">'.$website.'/videos.php?o=1&ver='.$registrar->post_slug.'</pre>':
+                            '<pre style="width:250px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
+                    "3" => ($registrar->post_meta_title != '')? 'video_post' : 'txt_post',
+                    "4" => ($registrar->fotos > 0)? $registrar->fotos : '0',
+                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'0',
+                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : '0',
                     "7" => $registrar->author_user,
                     "8" => $registrar->post_published,
                     "9" => ($registrar->post_status == "0")?
@@ -94,11 +98,13 @@
                 $datos[] = array(
                     "0" => $registrar->post_id,
                     "1" => $registrar->post_title,
-                    "2" => '<pre style="width:350px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
-                    "3" => substr($registrar->post_summary, 0, 150),
-                    "4" => ($registrar->fotos > 0)? $registrar->fotos : 'sin_fotos',
-                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'sin_visitas',
-                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : 'sin_likes',
+                    "2" => ($registrar->post_meta_title != '')?
+                            '<pre style="width:250px;">'.$website.'/videos.php?o=1&ver='.$registrar->post_slug.'</pre>':
+                            '<pre style="width:250px;">'.$website.'/post.php?o=1&ver='.$registrar->post_slug.'</pre>',
+                    "3" => ($registrar->post_meta_title != '')? 'video_post' : 'txt_post',
+                    "4" => ($registrar->fotos > 0)? $registrar->fotos : '0',
+                    "5" => ($registrar->post_views > 0)? $registrar->post_views :'0',
+                    "6" => ($registrar->post_likes > 0)? $registrar->post_likes : '0',
                     "7" => $registrar->author_user,
                     "8" => $registrar->post_published,
                     "9" => ($registrar->post_status == "0")?

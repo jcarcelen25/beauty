@@ -21,7 +21,7 @@
 
 <?php
     $query = mysqli_query($conexion, "
-                        SELECT post_id, post_title, post_summary, post_published, post_content
+                        SELECT post_id, post_title, post_meta_title, post_summary, post_published, post_content
                         FROM post
                         WHERE post_slug = '$slug'
                         AND post_status = 1; ");
@@ -31,8 +31,19 @@
         $post_summary = $row['post_summary'];
         $post_published = $row['post_published'];
         $post_content = $row['post_content'];
+        $post_video = $row['post_meta_title'];
+    }
+    
+    $query = mysqli_query($conexion, "
+                        SELECT COUNT(image_id) AS total
+                        FROM image d
+                        WHERE d.id_post = $post_id
+                        AND image_status = 1; ");
+    if ($row = mysqli_fetch_array($query)) {
+        $total_fotos = $row['total'];
     }
 ?>
+
 <script>
     $.post("controllers/post.php?accion=visita",{ "post_id": <?php echo $post_id; ?> }, function(data) {
         if (data == 0) {
@@ -48,41 +59,35 @@
                     <div class="col-12 col-md-8">
                         <center>
                             <div style="width:95%;">
+                                <h2><?php echo $post_title; ?></h2>
+                                <p><?php echo $post_summary; ?></p>
+                                <video width="400" controls controlsList="nodownload">
+                                    <source src="images/videos/<?php echo $post_video; ?>" type="video/mp4">
+                                    Your browser does not support HTML video.
+                                </video><br><br>
+                                
                                 <div style="background-color:#AD727D; width:95%; padding:20px; color:#fff;">
-                                    Puedes donar $1 para recibir por correo una copia de toda la sesión de fotos utilizada en este post.<br>
-                                    De esta manera nos ayudas a continuar con la publicación de contenido.<br><br>
+                                    Puedes donar $2 para recibir por correo todos los recursos disponibles en este post.<br>
+                                    Tenemos videos <b><?php echo $post_content; ?></b> y <b><?php echo $total_fotos; ?></b> fotos para ti.<br><br>
                                     <?php
-                                        $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 4; ");
+                                        $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 2; ");
                                         if ($row = mysqli_fetch_array($query)) {
-                                            echo '<a href="'.$row['config_value'].'" target="_blank" onclick="donar(1)" class="btn-coffe">Donar $1</a>';
+                                            $enlace_donar = $row['config_value'];
+                                            echo '<a href="'.$enlace_donar.'" target="_blank" onclick="donar(1)" class="btn-coffe">Donar $2</a>';
                                         }
                                     ?>
-                                </div>
-                                <h2><?php echo $post_title; ?></h2>
-                                <p><?php echo $post_content; ?></p><br><br>
-                                <?php
-                                    $query = mysqli_query($conexion,
-                                                        "SELECT image_url
-                                                        FROM image
-                                                        WHERE image_status = 1
-                                                        AND id_post = $post_id
-                                                        ORDER BY image_position ASC; ");
-                                    while ($row = mysqli_fetch_array($query)) {
-                                        echo '<a href="images/post/'.$row['image_url'].'" data-lightbox="models"><img src="images/post/'.$row['image_url'].'" style="width:90%;" /></a><br><br>';
-                                    }
-                                ?>
-                                <p><?php echo $post_summary; ?></p><br><br>
-                                <div style="background-color:#3B5661; width:95%; padding:20px; color:#fff;" onclick="like(<?php echo $post_id; ?>)">
-                                    <img src="images/icons/corazon.png" style="margin:5px; width:40px;" />
-                                    Déja tu like
                                 </div><br><br>
-                                <div style="background-color:#AD727D; width:95%; padding:20px; color:#fff;">
-                                    Puedes donar $1 para recibir por correo una copia de toda la sesión de fotos utilizada en este post.<br>
-                                    De esta manera nos ayudas a continuar con la publicación de contenido.<br><br>
+                                
+                                <div class="row">
                                     <?php
-                                        $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 4; ");
-                                        if ($row = mysqli_fetch_array($query)) {
-                                            echo '<a href="'.$row['config_value'].'" target="_blank" onclick="donar(1)" class="btn-coffe">Donar $1</a>';
+                                        $query = mysqli_query($conexion,
+                                                            "SELECT image_url
+                                                            FROM image
+                                                            WHERE image_status = 1
+                                                            AND id_post = $post_id
+                                                            ORDER BY image_position ASC; ");
+                                        while ($row = mysqli_fetch_array($query)) {
+                                            echo '<div class="col-4"><center><a href="'.$enlace_donar.'" target="_blank"><img src="images/post/'.$row['image_url'].'" style="width:95%; margin:5px;" /></a></center></div>';
                                         }
                                     ?>
                                 </div>
@@ -328,4 +333,5 @@
                 </div><br><br><br>
             </div>
         </div>
-<?php include './footer.php'; ?>
+<?php include './footer.php'; ?>                              
+                                

@@ -6,7 +6,7 @@
   var controller = "image.php";
 </script>
 
-<section class="content"><br><br> <!-- Main content -->
+<section class="content"><br> <!-- Main content -->
   <div class="container-fluid"> <!-- Small boxes (Stat box) -->
   <div class="row">
       <div class="col-12">
@@ -23,7 +23,7 @@
               <div class="col-12 col-md-4">
                 <div class="row">
                   <div class="col-6">
-                    <select class="form-control form-select-sm" id="opcionesVer" name="opcionesVer" onchange="opcionesVer()">
+                    <select class="form-control form-select-sm" id="opcionesVer" name="opcionesVer" onchange="opcionesVerParam()">
                         <option value="activos">Activos &nbsp;&nbsp;&nbsp;&nbsp;</option>
                         <option value="inactivos">Inactivos &nbsp;&nbsp;&nbsp;&nbsp;</option>
                         <option value="todos">Todos &nbsp;&nbsp;&nbsp;&nbsp;</option>

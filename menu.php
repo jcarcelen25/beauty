@@ -21,8 +21,8 @@
                             echo '<td><a target="_blank" href="'.$row['social_url'].'"><img src="images/icons/'.$row['social_icon'].'" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>';
                         }
                       ?>
-                      <td><a target="_blank" href=""><img src="images/icons/mail.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
-                      <td><a target="_blank" href=""><img src="images/icons/sharethis.png" style="width:25px; margin:5px 20px 5px 10px;" /></a></td>
+                      <td><a target="_blank" href="mailto:info@beauty-photo.website"><img src="images/icons/mail.png" style="width:25px; margin:5px 10px 5px 10px;" /></a></td>
+                      <!--<td><a target="_blank" href=""><img src="images/icons/sharethis.png" style="width:25px; margin:5px 20px 5px 10px;" /></a></td>-->
                       <td>
                         <?php
                           if ($_SESSION['author_id'] > 0) { echo '<a href="view/dashboard.php" target="_blank" class="btn btn-outline-secondary"><img src="images/icons/menu.png" style="width:25px;" /></a>'; }

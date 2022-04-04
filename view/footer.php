@@ -39,6 +39,32 @@
         <script src="src/datatables-buttons/js/buttons.colVis.js"></script>
         
         <script>
+                var screenHeight = $(window).height();
+        
+                $(document).ready(function() {
+                        $('#post1').dataTable( {
+                                "columnDefs": [
+                                        { "type": "num", "targets": 0 },
+                                        { "type": "num", "targets": 3 },
+                                        { "type": "num", "targets": 4 }
+                                ]
+                        });
+                });
+                
+                $(document).ready(function() {
+                        $('#post2').dataTable( {
+                                "columnDefs": [
+                                        { "type": "num", "targets": 0 },
+                                        { "type": "num", "targets": 3 },
+                                        { "type": "num", "targets": 4 }
+                                ]
+                        });
+                });
+                
+                $(document).ready(function() {
+                        $('#redes').dataTable();
+                });
+                
             function limpiarForm() {
                 $('#formulario')[0].reset();
                 $('#imagen_muestra').attr("src","");
@@ -136,13 +162,16 @@
                     colReorder: false,
                     rowReorder: false,
                     keys: true,
+                    fixedHeader: true,
+                    "scrollX": true,
+                    "scrollY": (screenHeight-450),
                     "paging": true,
                     "lengthChange": true,
                     "searching": true,
                     "ordering": true,
                     "info": true,
                     "autoWidth": true,
-                    "responsive": true,
+                    "responsive": false,
                     "lengthMenu": [[10, 20, 50, 100, -1], [10, 20, 50, 100, "Todo"]],//mostramos el menú de registros a revisar
                     "aProcessing": true, /* activa el procesamiento de DataTables */
                     "aServerSide": true, /* Paginación y filtrado realizado por el servidor */
@@ -368,11 +397,51 @@
                                 $sum = 0;
                                 $query = mysqli_query($conexion, "SELECT social_name, social_count, (SELECT SUM(post_views) FROM post WHERE post_status = 1) AS total FROM social ORDER BY social_id ASC; ");
                                 while ($row = mysqli_fetch_array($query)) {
-                                        $sum = (($row['social_count'] * 100) / $row['total']);
+                                        $sum += (($row['social_count'] * 100) / $row['total']);
                                         echo number_format((($row['social_count'] * 100) / $row['total']), 0).', ';
                                 }
                                 echo number_format(100-$sum, 0);
                               ?> ]
+                  }]
+                }
+            });
+            
+            
+            new Chart(document.getElementById("Chart5"), {
+                type: 'pie',
+                data: {
+                  labels: [ "Fotos", "Videos", "Base de datos", "Disponible" ],
+                  datasets: [{
+                    label: " KB",
+                    backgroundColor: ["#d43444", "#3e95cd", "#8e5ea2", "#e5e5e5"],
+                    data: [
+                        <?php
+                                $total = 100000000;
+                                $sum_fotos = 0;
+                                $sum_videos = 0;
+                                $sum_database = 0;
+                                
+                                $query = mysqli_query($conexion, "SELECT image_url FROM image; ");
+                                while ($row = mysqli_fetch_array($query)) {
+                                        $sum_fotos = $sum_fotos + filesize("../images/post/".$row['image_url']."");
+                                }
+                                
+                                $query = mysqli_query($conexion, "SELECT post_meta_title FROM post WHERE post_meta_title <> ''; ");
+                                while ($row = mysqli_fetch_array($query)) {
+                                        $sum_videos = $sum_videos + filesize("../images/videos/".$row['post_meta_title']."");
+                                }
+                                
+                                $query = mysqli_query($conexion, "SELECT config_value FROM config WHERE config_id = 14; ");
+                                if ($row = mysqli_fetch_array($query)) {
+                                        $sum_database = ($row['config_value']);
+                                }
+                                
+                                echo number_format($sum_fotos/1000, 2, '.', '').',';
+                                echo number_format($sum_videos/1000, 2, '.', '').',';
+                                echo number_format($sum_database, 2, '.', '').',';
+                                echo number_format($total - (($sum_fotos+$sum_videos+$sum_database)/1000), 2, '.', '');
+                        ?>
+                        ]
                   }]
                 }
             });

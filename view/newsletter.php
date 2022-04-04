@@ -6,7 +6,7 @@
   var controller = "newsletter.php";
 </script>
 
-<div class="content-wrapper"><br> <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
     
     <section class="content"> <!-- Main content -->
       <div class="container-fluid"> <!-- Small boxes (Stat box) -->

@@ -6,7 +6,7 @@
   var controller = "post.php";
 </script>
 
-<div class="content-wrapper"><br> <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper"><!-- Content Wrapper. Contains page content -->
     
     <section class="content"> <!-- Main content -->
       <div class="container-fluid"> <!-- Small boxes (Stat box) -->
@@ -47,7 +47,7 @@
                         <th>Id</th>
                         <th>Título</th>
                         <th>Slug</th>
-                        <th>Resumen</th>
+                        <th>Tipo</th>
                         <th>Fotos</th>
                         <th>Visitas</th>
                         <th>Likes</th>
@@ -61,7 +61,7 @@
                         <th>Id</th>
                         <th>Título</th>
                         <th>Slug</th>
-                        <th>Resumen</th>
+                        <th>Tipo</th>
                         <th>Fotos</th>
                         <th>Visitas</th>
                         <th>Likes</th>
@@ -100,15 +100,15 @@
                                       </div>
                                   </div><br>
                                   <div class="row">
-                                      <div class="col-12 col-md-2 text-center"><label>Meta título <sup>*</sup></label></div>
-                                      <div class="col-12 col-md-8">
-                                          <input type="text" class="form-control" name="post_meta_title" id="post_meta_title" maxlength="100" required="">
-                                      </div>
-                                  </div><br>
-                                  <div class="row">
                                       <div class="col-12 col-md-2 text-center"><label>Slug <sup>*</sup></label></div>
                                       <div class="col-12 col-md-8">
                                           <input type="text" class="form-control" name="post_slug" id="post_slug" maxlength="100" required="">
+                                      </div>
+                                  </div><br>
+                                  <div class="row">
+                                      <div class="col-12 col-md-2 text-center"><label>Nombre de video</label></div>
+                                      <div class="col-12 col-md-8">
+                                          <input type="text" class="form-control" name="post_meta_title" id="post_meta_title" maxlength="100" required="">
                                       </div>
                                   </div><br>
                                   <div class="row">
@@ -120,7 +120,7 @@
                                   <div class="row">
                                       <div class="col-12 col-md-2 text-center"><label>Texto secundario</label></div>
                                       <div class="col-12 col-md-8">
-                                          <textarea class="form-control" id="post_content" name="post_content" cols="45" rows="15"></textarea>
+                                          <textarea class="form-control" id="post_content" name="post_content" cols="45" rows="15" placeholder="Ingrese el número total de videos disponibles para este post"></textarea>
                                       </div>
                                   </div><br>
                                   <div class="row">

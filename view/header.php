@@ -40,5 +40,11 @@
         .card-body { overflow-x:auto!important; }
         .dt-buttons { margin-bottom:10px; }
         .btn-block { margin:2px; }
+        .dataTables_length { width: 40%; display: inline; margin-left:50px; }
+        .dataTables_filter { float:right; margin-top:-40px; }
+        
+        @media screen and (max-device-width: 480px) and (orientation: portrait) {
+            .dataTables_filter { display:contents;  }
+        }
       </style>
     </head>
