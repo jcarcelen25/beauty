@@ -108,7 +108,7 @@
                                   <div class="row">
                                       <div class="col-12 col-md-2 text-center"><label>Nombre de video</label></div>
                                       <div class="col-12 col-md-8">
-                                          <input type="text" class="form-control" name="post_meta_title" id="post_meta_title" maxlength="100" required="">
+                                          <input type="text" class="form-control" name="post_meta_title" id="post_meta_title" maxlength="100">
                                       </div>
                                   </div><br>
                                   <div class="row">
