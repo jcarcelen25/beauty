@@ -73,7 +73,7 @@
                       <div class="row">
                         <div class="col-12 col-md-1"></div>
                         <div class="col-12 col-md-7">
-                            <form name="formulario" id="formulario" method="POST">
+                            <form name="formulario" id="formulario" method="POST" enctype="multipart/form-data" class="dropzone">
                               <div class="row">
                                   <div class="col-12 col-md-2 text-center"><label>Foto <sup>*</sup></label></div>
                                   <div class="col-12 col-md-8">
@@ -84,10 +84,9 @@
                               <div class="row">
                                   <div class="col-12 col-md-2 text-center"><label>Foto <sup>*</sup></label></div>
                                   <div class="col-12 col-md-8">
-                                    
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input form-control" name="image_url" id="image_url">
+                                            <input type="file" class="form-control" name="image_url[]" id="image_url" multiple="multiple" required="">
                                             <label class="custom-file-label" for="image_url">Seleccionar foto</label>
                                         </div>
                                     </div>

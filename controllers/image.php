@@ -102,24 +102,28 @@
         break;
     
         case 'guardar':
-            if (!file_exists($_FILES['image_url']['tmp_name'])|| !is_uploaded_file($_FILES['image_url']['tmp_name'])) { /* valida si hay imagen */
+            $total = count($_FILES['image_url']['name']);
+            
+            if ($total < 1) { /* valida si hay imagen */
                 $image_url = $_POST["imagen_actual"];
             } else {
-                $extension = explode(".", $_FILES["image_url"]["name"]);
-                if ($_FILES['image_url']['type'] == "image/jpg" || $_FILES['image_url']['type'] == "image/jpeg" || $_FILES['image_url']['type'] == "image/png") {
-                    $image_url = round(microtime(true)).'.'.end($extension);
-                    move_uploaded_file($_FILES["image_url"]["tmp_name"], "../images/post/".$image_url);
-                } else {
-                    echo "Error: el archivo enviado no es del formato correcto, se recibe un ".$_FILES['image_url']['type'];
+                for ($i=0 ; $i < $total ; $i++) {
+                    $extension = explode(".", $_FILES["image_url"]["name"][$i]);
+                    if ($_FILES['image_url']['type'][$i] == "image/jpg" || $_FILES['image_url']['type'][$i] == "image/jpeg" || $_FILES['image_url']['type'][$i] == "image/png") {
+                        $image_url = round(microtime(true)).$i.'.'.end($extension);
+                        move_uploaded_file($_FILES["image_url"]["tmp_name"][$i], "../images/post/".$image_url);
+                        
+                        if (empty($image_id)) { /* insertar */
+                            $respuesta = $image -> insertar($image_url, $image_type, ($image_position+$i), $id_post, $_SESSION['author_id']);
+                            echo $respuesta ? "1": "0";
+                        } else { /* actualizar */
+                            $respuesta = $image -> editar($image_url, $image_type, $image_position, $_SESSION['author_id'], $image_id);
+                            echo $respuesta ? "1": "0";
+                        }
+                    } else {
+                        echo "Error: el archivo enviado no es del formato correcto, se recibe un ".$_FILES['image_url']['type'][$i];
+                    }
                 }
-            }
-            
-            if (empty($image_id)) { /* insertar */
-                $respuesta = $image -> insertar($image_url, $image_type, $image_position, $id_post, $_SESSION['author_id']);
-                echo $respuesta ? "1": "0";
-            } else { /* actualizar */
-                $respuesta = $image -> editar($image_url, $image_type, $image_position, $_SESSION['author_id'], $image_id);
-                echo $respuesta ? "1": "0";
             }
         break;
     

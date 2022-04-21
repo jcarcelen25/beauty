@@ -6,7 +6,7 @@
             </footer>
         </div>
 
-        <script src="src/jquery/jquery.min.js"></script> <!-- jQuery -->
+        <script src="src/jquery/jquery.js"></script> <!-- jQuery -->
         <script src="src/jquery-ui/jquery-ui.min.js"></script> <!-- jQuery UI 1.11.4 -->
         <script> $.widget.bridge('uibutton', $.ui.button) </script> <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script src="src/bootstrap/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap 4 -->
@@ -118,7 +118,14 @@
                     contentType: false,
                     processData: false,
                     success: function(datos) {     
-                        if(datos == "1") {
+                        if(datos == "0") {
+                            Swal.fire({
+                                icon: 'error',
+                                text: 'Los datos no se han podido guardar',
+                                showConfirmButton: false,
+                                timer: 2500
+                            });
+                        } else {
                             Swal.fire({
                                 icon: 'success',
                                 text: 'Los datos se han guardado',
@@ -128,13 +135,6 @@
                             verForm(false);
                             limpiarForm();
                             tabla.ajax.reload();
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                text: 'Los datos no se han podido guardar',
-                                showConfirmButton: false,
-                                timer: 2500
-                            });
                         }
                     }
                 });

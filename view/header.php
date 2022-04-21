@@ -32,19 +32,19 @@
         <link rel="stylesheet" href="src/datatables-colreorder/css/colReorder.bootstrap4.css">
         <link rel="stylesheet" href="src/datatables-rowreorder/css/rowReorder.bootstrap4.css">
         <link rel="stylesheet" href="src/datatables-keytable/css/keyTable.bootstrap4.css">
-        
-      <style>
-        html, body { overflow-x:hidden; }
-        #opcionesVer { height:32px!important; width:120px!important; float:right!important; }
-        #mainTableData { min-width:100%!important; width:100%!important; max-width:100%!important; }
-        .card-body { overflow-x:auto!important; }
-        .dt-buttons { margin-bottom:10px; }
-        .btn-block { margin:2px; }
-        .dataTables_length { width: 40%; display: inline; margin-left:50px; }
-        .dataTables_filter { float:right; margin-top:-40px; }
-        
-        @media screen and (max-device-width: 480px) and (orientation: portrait) {
-            .dataTables_filter { display:contents;  }
-        }
-      </style>
+
+        <style>
+          html, body { overflow-x:hidden; }
+          #opcionesVer { height:32px!important; width:120px!important; float:right!important; }
+          #mainTableData { min-width:100%!important; width:100%!important; max-width:100%!important; }
+          .card-body { overflow-x:auto!important; }
+          .dt-buttons { margin-bottom:10px; }
+          .btn-block { margin:2px; }
+          .dataTables_length { width: 40%; display: inline; margin-left:50px; }
+          .dataTables_filter { float:right; margin-top:-40px; }
+          
+          @media screen and (max-device-width: 480px) and (orientation: portrait) {
+              .dataTables_filter { display:contents;  }
+          }
+        </style>
     </head>
