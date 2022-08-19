@@ -1,6 +1,13 @@
 <?php
     require_once 'global.php';
     
+    $db_host = "";
+    $db_user = "";
+    $db_password = "";
+    $db_name = "";
+    $db_encode = "";
+    $db_language = "";
+
     $conexion = new mysqli(DB_HOST, USER_DB, PASSWORD_DB, DB_NAME);
     mysqli_query($conexion, 'SET NAMES "'.DB_ENCODE.'"');
     mysqli_query($conexion,'SET lc_time_names = "es_ES" ');
@@ -18,7 +25,7 @@
             return $query;
         }
 
-        function ejecutarJson($sql){ /* Metodo que puede regresar un arreglo de objetos JSON - varias filas */
+        function ejecutarJson($sql) { /* Metodo que puede regresar un arreglo de objetos JSON - varias filas */
             global $conexion;
             mysqli_set_charset($conexion,"utf8");
             $res_query = mysqli_query($conexion, $sql);   
